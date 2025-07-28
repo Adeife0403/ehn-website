@@ -4,38 +4,248 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hero Spotlight</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: white;
+    }
+    .search-bar {
+      text-align: center;
+      margin: 1rem;
+    }
+    .search-bar input, .search-bar select {
+      padding: 0.5rem;
+      margin: 0.2rem;
+      font-size: 16px;
+    }
+    .hero-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .hero-card {
+      background: white;
+      padding: 1rem;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .hero-card:hover {
+      transform: scale(1.02);
+    }
+    .hero-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .hero-card h3 {
+      margin: 0.5rem 0 0.2rem;
+    }
+    .hero-card p {
+      font-size: 14px;
+      color: #333;
+    }
+    .pagination {
+      text-align: center;
+      margin: 1rem;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background: white;
+      margin: 10% auto;
+      padding: 2rem;
+      width: 80%;
+      max-width: 400px;
+      position: relative;
+      border-radius: 10px;
+    }
+    .close {
+      position: absolute;
+      top: 10px; right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Hero Spotlight</h1>
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search heroes..." />
-      <select id="categoryFilter">
-        <option value="all">All Categories</option>
-      </select>
-    </div>
-    <div id="heroGrid" class="grid-container"></div>
-    <div class="pagination">
-      <button id="prevBtn">Previous</button>
-      <span id="pageInfo">Page 1</span>
-      <button id="nextBtn">Next</button>
-    </div>
-    <footer>
-      <p>&copy; 2025 Everyday Heroes Network</p>
-    </footer>
+  <h1>Hero Spotlight</h1>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search heroes..." />
+    <select id="categoryFilter">
+      <option value="All">All Categories</option>
+    </select>
   </div>
 
-  <div id="heroModal" class="modal">
+  <div class="hero-container" id="heroContainer"></div>
+
+  <div class="pagination">
+    <button id="prevPage">Previous</button>
+    Page <span id="pageNumber">1</span>
+    <button id="nextPage">Next</button>
+  </div>
+
+  <div class="modal" id="heroModal">
     <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <img id="modalImage" alt="Hero Image" />
+      <span class="close" id="closeModal">&times;</span>
+      <img id="modalImage" src="" alt="Hero Image" style="width:100px; height:100px; border-radius:50%;"/>
       <h2 id="modalName"></h2>
       <h4 id="modalTitle"></h4>
-      <p id="modalFullBio"></p>
+      <p id="modalDescription"></p>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <footer>© 2025 Everyday Heroes Network</footer>
+
+  <script>
+    const heroes = [
+      {
+        name: "Ajun Babatunde",
+        title: "Community Educator",
+        image: "https://via.placeholder.com/100",
+        shortDescription: "Ajun has helped over 500 children access quality education.",
+        fullDescription: "Ajun has helped over 500 children access quality education in rural areas.",
+        category: "Education"
+      },
+      {
+        name: "Sarah Olamide",
+        title: "Volunteer First Responder",
+        image: "https://via.placeholder.com/100",
+        shortDescription: "Sarah has saved lives during emergencies.",
+        fullDescription: "Sarah volunteers every weekend as an emergency responder, saving lives across multiple states.",
+        category: "Emergency Services"
+      },
+      {
+        name: "Chinedu Okafor",
+        title: "Youth Mentor",
+        image: "https://via.placeholder.com/100",
+        shortDescription: "Chinedu mentors young boys.",
+        fullDescription: "Chinedu mentors young boys, helping them grow into responsible men.",
+        category: "Youth Development"
+      }
+    ];
+
+    const container = document.getElementById("heroContainer");
+    const searchInput = document.getElementById("searchInput");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const prevPageBtn = document.getElementById("prevPage");
+    const nextPageBtn = document.getElementById("nextPage");
+    const pageNumber = document.getElementById("pageNumber");
+
+    const modal = document.getElementById("heroModal");
+    const closeModal = document.getElementById("closeModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalName = document.getElementById("modalName");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDescription = document.getElementById("modalDescription");
+
+    let currentPage = 1;
+    const itemsPerPage = 3;
+
+    function renderCategories() {
+      const categories = [...new Set(heroes.map(h => h.category))];
+      categories.forEach(cat => {
+        const opt = document.createElement("option");
+        opt.value = cat;
+        opt.textContent = cat;
+        categoryFilter.appendChild(opt);
+      });
+    }
+
+    function filterHeroes() {
+      const search = searchInput.value.toLowerCase();
+      const category = categoryFilter.value;
+      return heroes.filter(h =>
+        (h.name.toLowerCase().includes(search) || h.title.toLowerCase().includes(search)) &&
+        (category === "All" || h.category === category)
+      );
+    }
+
+    function renderHeroes() {
+      const filtered = filterHeroes();
+      const start = (currentPage - 1) * itemsPerPage;
+      const paginated = filtered.slice(start, start + itemsPerPage);
+
+      container.innerHTML = "";
+      paginated.forEach(hero => {
+        const card = document.createElement("div");
+        card.className = "hero-card";
+        card.innerHTML = `
+          <img src="${hero.image}" alt="Hero Image">
+          <h3>${hero.name}</h3>
+          <h4>${hero.title}</h4>
+          <p>${hero.shortDescription}</p>
+        `;
+        card.onclick = () => showModal(hero);
+        container.appendChild(card);
+      });
+
+      pageNumber.textContent = currentPage;
+      prevPageBtn.disabled = currentPage === 1;
+      nextPageBtn.disabled = start + itemsPerPage >= filtered.length;
+    }
+
+    function showModal(hero) {
+      modalImage.src = hero.image;
+      modalName.textContent = hero.name;
+      modalTitle.textContent = hero.title;
+      modalDescription.textContent = hero.fullDescription;
+      modal.style.display = "block";
+    }
+
+    closeModal.onclick = () => {
+      modal.style.display = "none";
+    };
+
+    window.onclick = (e) => {
+      if (e.target === modal) modal.style.display = "none";
+    };
+
+    prevPageBtn.onclick = () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderHeroes();
+      }
+    };
+
+    nextPageBtn.onclick = () => {
+      currentPage++;
+      renderHeroes();
+    };
+
+    searchInput.oninput = renderHeroes;
+    categoryFilter.onchange = renderHeroes;
+
+    renderCategories();
+    renderHeroes();
+  </script>
 </body>
 </html>
