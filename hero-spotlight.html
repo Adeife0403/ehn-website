@@ -1,39 +1,66 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hero Spotlight</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {{ font-family: Arial; background: #f4f4f4; margin: 0; padding: 0; }}
+    .hero-card {{ background: white; padding: 20px; margin: 15px auto; width: 90%; max-width: 600px;
+                  border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }}
+    .hero-thumb {{ width: 80px; height: 80px; border-radius: 50%; object-fit: cover; float: left; margin-right: 20px; }}
+    .hero-name {{ font-size: 20px; font-weight: bold; margin-top: 10px; }}
+    .hero-role {{ font-size: 16px; color: #666; }}
+    .clear {{ clear: both; }}
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Everyday Heroes Network</h1>
-    <p>Celebrating the Unsung</p>
-  </header>
+  <h1 style="text-align:center; padding:20px;">Hero Spotlight</h1>
 
-  <div class="filter-bar">
-    <input type="text" id="searchInput" placeholder="Search heroes..." />
-    <select id="categoryFilter">
-      <option value="All">All Categories</option>
-    </select>
-  </div>
-
-  <div id="heroGrid" class="grid-container"></div>
-  <div id="pagination"></div>
-
-  <!-- Modal Popup -->
-  <div id="heroModal" class="modal">
-    <div class="modal-content">
-      <span class="close-button" onclick="closeModal()">&times;</span>
-      <img id="modalImage" class="modal-image" src="" alt="Hero Image" />
-      <h2 id="modalName"></h2>
-      <p id="modalRole" class="modal-role"></p>
-      <p id="modalStory" class="modal-story"></p>
+    <div class="hero-card">
+        <img src="ajun.jpg" class="hero-thumb" alt="Ajun Babatunde">
+        <div class="hero-name">Ajun Babatunde</div>
+        <div class="hero-role">Community Educator</div>
+        <p>Ajun has helped over 500 children access quality education in rural areas.</p>
+        <div class="clear"></div>
     </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+    
+    <div class="hero-card">
+        <img src="sarah.jpg" class="hero-thumb" alt="Sarah Olamide">
+        <div class="hero-name">Sarah Olamide</div>
+        <div class="hero-role">Volunteer First Responder</div>
+        <p>Sarah has saved lives during emergencies across her region.</p>
+        <div class="clear"></div>
+    </div>
+    
+    <div class="hero-card">
+        <img src="chinedu.jpg" class="hero-thumb" alt="Chinedu Okafor">
+        <div class="hero-name">Chinedu Okafor</div>
+        <div class="hero-role">Youth Mentor</div>
+        <p>Chinedu mentors young boys, helping them grow into responsible men.</p>
+        <div class="clear"></div>
+    </div>
+    
+    <div class="hero-card">
+        <img src="aisha.jpg" class="hero-thumb" alt="Aisha Bello">
+        <div class="hero-name">Aisha Bello</div>
+        <div class="hero-role">Environmental Advocate</div>
+        <p>Aisha organizes monthly clean-up drives and tree planting events.</p>
+        <div class="clear"></div>
+    </div>
+    
+    <div class="hero-card">
+        <img src="emeka.jpg" class="hero-thumb" alt="Emeka Duru">
+        <div class="hero-name">Emeka Duru</div>
+        <div class="hero-role">Neighborhood Guardian</div>
+        <p>Emeka helps keep the community safe and assists elders.</p>
+        <div class="clear"></div>
+    </div>
+    
+    <div class="hero-card">
+        <img src="grace.jpg" class="hero-thumb" alt="Grace Ijeoma">
+        <div class="hero-name">Grace Ijeoma</div>
+        <div class="hero-role">Healthcare Support Volunteer</div>
+        <p>Grace spends weekends volunteering at community health clinics.</p>
+        <div class="clear"></div>
+    </div>
+    </body></html>
