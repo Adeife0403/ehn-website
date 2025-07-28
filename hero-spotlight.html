@@ -3,30 +3,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hero Spotlight</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Hero Spotlight</h1>
-    <div class="controls">
-      <input type="text" id="search" placeholder="Search heroes..." />
-      <select id="category-filter">
-        <option value="All">All Categories</option>
-        <option value="Educator">Educator</option>
-        <option value="Responder">Responder</option>
-        <option value="Mentor">Mentor</option>
-        <option value="Volunteer">Volunteer</option>
-      </select>
-    </div>
+    <h1>Everyday Heroes Network</h1>
+    <p>Celebrating the Unsung</p>
   </header>
-  <main id="hero-container"></main>
-  <div class="pagination">
-    <button id="prevBtn">Previous</button>
-    <span id="pageNumber">1</span>
-    <button id="nextBtn">Next</button>
+
+  <div class="filter-bar">
+    <input type="text" id="searchInput" placeholder="Search heroes..." />
+    <select id="categoryFilter">
+      <option value="All">All Categories</option>
+    </select>
   </div>
+
+  <div id="heroGrid" class="grid-container"></div>
+  <div id="pagination"></div>
+
+  <!-- Modal Popup -->
+  <div id="heroModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeModal()">&times;</span>
+      <img id="modalImage" class="modal-image" src="" alt="Hero Image" />
+      <h2 id="modalName"></h2>
+      <p id="modalRole" class="modal-role"></p>
+      <p id="modalStory" class="modal-story"></p>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

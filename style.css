@@ -1,58 +1,86 @@
 
 body {
   font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
   margin: 0;
   padding: 0;
-  background: #f8f8f8;
 }
 header {
-  background: #4CAF50;
+  background-color: #003366;
   color: white;
-  padding: 20px;
   text-align: center;
+  padding: 20px;
 }
-.controls {
-  margin-top: 10px;
-}
-.controls input,
-.controls select {
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
   padding: 10px;
-  margin: 10px 5px;
-  width: 200px;
+  background: #e0e0e0;
 }
-#hero-container {
+input, select {
+  padding: 8px;
+  font-size: 16px;
+}
+.grid-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
+  gap: 20px;
 }
 .hero-card {
-  background: white;
+  background-color: white;
   border-radius: 8px;
-  margin: 15px;
-  padding: 15px;
-  width: 280px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 280px;
+  padding: 15px;
   text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 }
-.hero-card img {
+.hero-card:hover {
+  transform: scale(1.03);
+}
+.hero-img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
+  margin-bottom: 10px;
 }
-.hero-card h3 {
-  margin: 10px 0 5px;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
 }
-.hero-card p {
-  color: #444;
-  font-size: 14px;
-}
-.pagination {
-  text-align: center;
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
   padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
 }
-.pagination button {
-  padding: 10px 20px;
-  margin: 0 10px;
+.modal-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+.close-button {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+.modal-role {
+  font-weight: bold;
+  margin: 10px 0;
 }
