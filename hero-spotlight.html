@@ -1,66 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hero Spotlight</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Hero Spotlight</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Hero Spotlight</h1>
-    <input type="text" id="search" placeholder="Search heroes..." />
-    <select id="categoryFilter">
-      <option value="all">All Categories</option>
-    </select>
-  </header>
-  <main class="hero-grid">
+    <header>
+        <h1>Hero Spotlight</h1>
+        <div class="search-filter">
+            <input type="text" id="searchInput" placeholder="Search heroes...">
+            <select id="categoryFilter">
+                <option value="">All Categories</option>
+                <option value="Community Educator">Community Educator</option>
+                <option value="Volunteer First Responder">Volunteer First Responder</option>
+                <option value="Youth Mentor">Youth Mentor</option>
+                <option value="Environmental Advocate">Environmental Advocate</option>
+                <option value="Neighborhood Guardian">Neighborhood Guardian</option>
+            </select>
+        </div>
+    </header>
+    <main id="heroContainer"></main>
+    <div class="pagination" id="pagination"></div>
 
-    <div class="hero-card">
-      <img src="images/heroes/ajun.jpg" alt="Ajun Babatunde" class="hero-img" />
-      <h2>Ajun Babatunde</h2>
-      <h3>Community Educator</h3>
-      <p>Ajun has helped over 500 children access quality education in rural areas.</p>
+    <!-- Modal -->
+    <div id="heroModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" class="modal-img" src="" alt="Hero image">
+            <h2 id="modalName"></h2>
+            <h4 id="modalTitle"></h4>
+            <p id="modalFullStory"></p>
+        </div>
     </div>
 
-    <div class="hero-card">
-      <img src="images/heroes/sarah.jpg" alt="Sarah Olamide" class="hero-img" />
-      <h2>Sarah Olamide</h2>
-      <h3>Volunteer First Responder</h3>
-      <p>Sarah has saved lives during emergencies across her region.</p>
-    </div>
+    <footer>
+        <p>&copy; 2025 Everyday Heroes Network</p>
+    </footer>
 
-    <div class="hero-card">
-      <img src="images/heroes/chinedu.jpg" alt="Chinedu Okafor" class="hero-img" />
-      <h2>Chinedu Okafor</h2>
-      <h3>Youth Mentor</h3>
-      <p>Chinedu mentors young boys, helping them grow into responsible men.</p>
-    </div>
-
-    <div class="hero-card">
-      <img src="images/heroes/aisha.jpg" alt="Aisha Bello" class="hero-img" />
-      <h2>Aisha Bello</h2>
-      <h3>Environmental Advocate</h3>
-      <p>Aisha organizes monthly clean-up drives and tree planting events.</p>
-    </div>
-
-    <div class="hero-card">
-      <img src="images/heroes/emeka.jpg" alt="Emeka Duru" class="hero-img" />
-      <h2>Emeka Duru</h2>
-      <h3>Neighborhood Guardian</h3>
-      <p>Emeka helps ensure community safety and care for the elderly.</p>
-    </div>
-
-    <div class="hero-card">
-      <img src="images/heroes/grace.jpg" alt="Grace Ijeoma" class="hero-img" />
-      <h2>Grace Ijeoma</h2>
-      <h3>Healthcare Volunteer</h3>
-      <p>Grace volunteers on weekends at local health clinics.</p>
-    </div>
-
-  </main>
-  <footer>
-    <p>&copy; 2025 Everyday Heroes Network</p>
-  </footer>
+    <script src="script.js"></script>
 </body>
 </html>
