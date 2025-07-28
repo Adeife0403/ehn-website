@@ -1,0 +1,58 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f8f8;
+}
+header {
+  background: #4CAF50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+.controls {
+  margin-top: 10px;
+}
+.controls input,
+.controls select {
+  padding: 10px;
+  margin: 10px 5px;
+  width: 200px;
+}
+#hero-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+.hero-card {
+  background: white;
+  border-radius: 8px;
+  margin: 15px;
+  padding: 15px;
+  width: 280px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.hero-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.hero-card h3 {
+  margin: 10px 0 5px;
+}
+.hero-card p {
+  color: #444;
+  font-size: 14px;
+}
+.pagination {
+  text-align: center;
+  padding: 20px;
+}
+.pagination button {
+  padding: 10px 20px;
+  margin: 0 10px;
+}

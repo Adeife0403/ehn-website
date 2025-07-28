@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hero Spotlight</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Hero Spotlight</h1>
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search heroes..." />
+      <select id="category-filter">
+        <option value="All">All Categories</option>
+        <option value="Educator">Educator</option>
+        <option value="Responder">Responder</option>
+        <option value="Mentor">Mentor</option>
+        <option value="Volunteer">Volunteer</option>
+      </select>
+    </div>
+  </header>
+  <main id="hero-container"></main>
+  <div class="pagination">
+    <button id="prevBtn">Previous</button>
+    <span id="pageNumber">1</span>
+    <button id="nextBtn">Next</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
