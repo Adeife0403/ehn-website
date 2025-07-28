@@ -1,62 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Everyday Heroes Network</title>
-  
-<style>
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-  }
-  header, footer {
-    background-color: #ffd700;
-    padding: 20px;
-    text-align: center;
-  }
-  nav a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #333;
-  }
-  .nominate-button {
-    background-color: #ff6f00;
-    color: white !important;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  .nominate-button:hover {
-    background-color: #e65c00;
-  }
-  main {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-</style>
-
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #002b6c;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    nav {
+      background-color: #1e5dd2;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    .hero {
+      background-color: #ffc107;
+      color: #000;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 24px;
+    }
+    .hero p {
+      font-size: 16px;
+    }
+    .hero a.button {
+      background-color: #e65100;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 15px;
+      text-decoration: none;
+    }
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    section img {
+      width: 200px;
+      height: auto;
+      margin: 10px 0;
+    }
+    .mission-vision {
+      background-color: #f5f5f5;
+      padding: 30px;
+      margin-top: 30px;
+    }
+    .social-icons img {
+      width: 30px;
+      margin: 0 10px;
+    }
+    footer {
+      background-color: #eee;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to Everyday Heroes Network</h1>
-    
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="heroes.html">Hero Spotlight</a>
-  <a href="nominate.html" class="nominate-button">Nominate</a>
-</nav>
 
+  <header>
+    <h1>Everyday Heroes Network</h1>
+    <p>Celebrating the Unsung</p>
   </header>
-  <main>
-    <p>This is the homepage of EHN. Celebrate and nominate everyday heroes around you.</p>
-  </main>
-  <footer>&copy; 2025 Everyday Heroes Network</footer>
+
+  <nav>
+    <a href="index.html">About</a>
+    <a href="nominate.html">Nominate</a>
+    <a href="spotlight.html">Hero Spotlight</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <h2><strong>Everyday People. Extraordinary Impact.</strong></h2>
+    <p>Discover, celebrate, and support the unsung heroes in your community.</p>
+    <a href="nominate.html" class="button">Nominate a Hero</a>
+  </div>
+
+  <section>
+    <h2>What is EHN?</h2>
+    <p>Everyday Heroes Network (EHN) is a platform that uplifts and recognizes individuals who make silent but significant impacts in their communities. We tell their stories and honor their work.</p>
+    <p>The Everyday Heroes Network (EHN) is a digital platform and storytelling initiative that highlights the unsung contributions of ordinary people making extraordinary differences in their communities — from street sweepers and nurses to single mothers/fathers, teachers, drivers, market women, and neighborhood volunteers. The goal is to recognize, appreciate, and amplify the impact of everyday heroes who often go unnoticed. EHN will tell their stories, foster a culture of gratitude, and build a community inspired by real-world resilience and kindness.</p>
+  </section>
+
+  <section>
+    <h2>Monthly Hero Spotlight (F)</h2>
+    <h3>Ajun – Flood Relief Teacher</h3>
+    <img src="images/ajun.jpg" alt="Ajun the Flood Relief Teacher" />
+  </section>
+
+  <section>
+    <h2>Monthly Hero Spotlight (M)</h2>
+    <h3>Kunle Ade – Local Waste Recycler</h3>
+    <img src="images/kunle.jpg" alt="Kunle the Recycler" />
+    <p>Kunle started a recycling initiative in his neighborhood, collecting over 10,000 plastic bottles and educating youth about environmental responsibility.</p>
+  </section>
+
+  <section class="mission-vision">
+    <h2>Our Mission & Vision</h2>
+    <p><strong>Mission:</strong> To honor and spotlight everyday individuals who positively impact their communities, often without recognition or reward.</p>
+    <p><strong>Vision:</strong> A world where quiet acts of service are valued, shared, and celebrated as vital contributions to society.</p>
+  </section>
+
+  <section>
+    <h3>Follow Us</h3>
+    <div class="social-icons">
+      <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+      <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="images/youtube.png" alt="YouTube"></a>
+    </div>
+  </section>
+
+  <footer>
+    <h3>Our Sponsors</h3>
+    <p>[Sponsor logos or names here]</p>
+  </footer>
+
 </body>
 </html>
