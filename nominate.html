@@ -1,85 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Nominate a Hero - EHN</title>
-  
-<style>
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-  }
-  header, footer {
-    background-color: #ffd700;
-    padding: 20px;
-    text-align: center;
-  }
-  nav a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #333;
-  }
-  .nominate-button {
-    background-color: #ff6f00;
-    color: white !important;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  .nominate-button:hover {
-    background-color: #e65c00;
-  }
-  main {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nominate a Hero – EHN</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
 
+    header {
+      background-color: #002b6c;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    nav {
+      background-color: #1e5dd2;
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #002b6c;
+    }
+
+    form label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    form button {
+      background-color: #e65100;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    form button:hover {
+      background-color: #cc4600;
+    }
+
+    footer {
+      background-color: #eee;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
+
   <header>
-    <h1>Nominate an Everyday Hero</h1>
-    
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="heroes.html">Hero Spotlight</a>
-  <a href="nominate.html" class="nominate-button">Nominate</a>
-</nav>
-
+    <h1>Everyday Heroes Network</h1>
+    <p>Nominate a Hero</p>
   </header>
-  <main>
+
+  <nav>
+    <a href="index.html">About</a>
+    <a href="nominate.html">Nominate</a>
+    <a href="spotlight.html">Hero Spotlight</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="container">
+    <h2>Nominate a Hero</h2>
+    <p style="text-align:center;">Use the form below to nominate someone who deserves recognition for their everyday heroism.</p>
     <form action="https://formspree.io/f/movlwlla" method="POST">
-      <label for="nominator">Your Name</label>
-      <input type="text" id="nominator" name="nominator" required>
+      <label for="your-name">Your Name</label>
+      <input type="text" id="your-name" name="your-name" required>
 
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required>
+      <label for="your-email">Your Email</label>
+      <input type="email" id="your-email" name="your-email" required>
 
-      <label for="hero-name">Hero's Full Name</label>
+      <label for="hero-name">Hero's Name</label>
       <input type="text" id="hero-name" name="hero-name" required>
 
-      <label for="hero-contact">Hero's Contact (optional)</label>
-      <input type="text" id="hero-contact" name="hero-contact">
+      <label for="hero-story">Why are they a hero?</label>
+      <textarea id="hero-story" name="hero-story" rows="5" required></textarea>
 
-      <label for="role">Hero's Role or Contribution</label>
-      <input type="text" id="role" name="role" required>
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" required>
 
-      <label for="impact">Describe the Hero's Impact</label>
-      <textarea id="impact" name="impact" rows="5" required></textarea>
-
-      <label for="photo">Upload a Photo (optional)</label>
-      <input type="file" id="photo" name="photo">
-
-      <input type="submit" value="Submit Nomination">
+      <button type="submit">Submit Nomination</button>
     </form>
-  </main>
-  <footer>&copy; 2025 Everyday Heroes Network</footer>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Everyday Heroes Network</p>
+  </footer>
+
 </body>
 </html>
