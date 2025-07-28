@@ -1,268 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hero Spotlight</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding: 0;
-    }
-    h1 {
-      text-align: center;
-      background-color: #111;
-      color: white;
-      padding: 20px 0;
-      margin-bottom: 20px;
-    }
-    .search-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .search-container input,
-    .search-container select {
-      padding: 8px;
-      font-size: 16px;
-    }
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 0 20px;
-    }
-    .hero-card {
-      background-color: white;
-      border-radius: 10px;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      width: 250px;
-      cursor: pointer;
-    }
-    .hero-card img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .pagination {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .pagination button {
-      padding: 8px 12px;
-      margin: 0 5px;
-      font-size: 16px;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-    .modal-content {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 400px;
-      width: 90%;
-      text-align: center;
-      position: relative;
-    }
-    .modal-content img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 20px;
-      cursor: pointer;
-    }
-    footer {
-      background-color: #111;
-      color: white;
-      text-align: center;
-      padding: 10px 0;
-      margin-top: 30px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <h1>Hero Spotlight</h1>
-  <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Search heroes...">
-    <select id="categoryFilter">
-      <option value="All">All Categories</option>
-      <option value="Community Educator">Community Educator</option>
-      <option value="Volunteer First Responder">Volunteer First Responder</option>
-      <option value="Youth Mentor">Youth Mentor</option>
-      <option value="Environmental Advocate">Environmental Advocate</option>
-      <option value="Neighborhood Guardian">Neighborhood Guardian</option>
-      <option value="Healthcare Volunteer">Healthcare Volunteer</option>
-    </select>
-  </div>
-  <div class="card-container" id="heroCards"></div>
-  <div class="pagination">
-    <button onclick="prevPage()">Previous</button>
-    <span id="pageNum">Page 1</span>
-    <button onclick="nextPage()">Next</button>
+  <div class="container">
+    <h1>Hero Spotlight</h1>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search heroes..." />
+      <select id="categoryFilter">
+        <option value="all">All Categories</option>
+      </select>
+    </div>
+    <div id="heroGrid" class="grid-container"></div>
+    <div class="pagination">
+      <button id="prevBtn">Previous</button>
+      <span id="pageInfo">Page 1</span>
+      <button id="nextBtn">Next</button>
+    </div>
+    <footer>
+      <p>&copy; 2025 Everyday Heroes Network</p>
+    </footer>
   </div>
 
-  <div class="modal" id="heroModal">
+  <div id="heroModal" class="modal">
     <div class="modal-content">
-      <span class="close-btn" onclick="closeModal()">&times;</span>
-      <img id="modalImage" src="" alt="Hero Image" />
+      <span class="close-btn">&times;</span>
+      <img id="modalImage" alt="Hero Image" />
       <h2 id="modalName"></h2>
       <h4 id="modalTitle"></h4>
-      <p id="modalDescription"></p>
+      <p id="modalFullBio"></p>
     </div>
   </div>
 
-  <footer>
-    © 2025 Everyday Heroes Network
-  </footer>
-
-  <script>
-    const heroes = [
-      {
-        name: "Ajun Babatunde",
-        title: "Community Educator",
-        description: "Ajun has helped over 500 children access quality education in rural areas.",
-        fullDescription: "Ajun is a dedicated community educator who works in underserved areas, ensuring access to quality education for over 500 children.",
-        image: "images/heroes/ajun.jpg",
-        category: "Community Educator"
-      },
-      {
-        name: "Sarah Olamide",
-        title: "Volunteer First Responder",
-        description: "Sarah has saved lives during emergencies across her region.",
-        fullDescription: "Sarah volunteers every weekend as an emergency medical responder, saving lives across multiple states.",
-        image: "images/heroes/sarah.jpg",
-        category: "Volunteer First Responder"
-      },
-      {
-        name: "Chinedu Okafor",
-        title: "Youth Mentor",
-        description: "Chinedu mentors young boys, helping them grow into responsible men.",
-        fullDescription: "As a mentor, Chinedu runs workshops that guide young boys on education, character building, and leadership.",
-        image: "images/heroes/chinedu.jpg",
-        category: "Youth Mentor"
-      },
-      {
-        name: "Aisha Bello",
-        title: "Environmental Advocate",
-        description: "Aisha organizes clean-up drives...",
-        fullDescription: "Aisha is an environmentalist who leads weekly community clean-up events and tree planting campaigns.",
-        image: "images/heroes/aisha.jpg",
-        category: "Environmental Advocate"
-      },
-      {
-        name: "Emeka Duru",
-        title: "Neighborhood Guardian",
-        description: "Emeka ensures community safety...",
-        fullDescription: "Emeka leads a local neighborhood watch program that keeps families safe and informed.",
-        image: "images/heroes/emeka.jpg",
-        category: "Neighborhood Guardian"
-      },
-      {
-        name: "Grace Ijeoma",
-        title: "Healthcare Volunteer",
-        description: "Grace volunteers at clinics...",
-        fullDescription: "Grace provides essential medical services at local outreach clinics during weekends.",
-        image: "images/heroes/grace.jpg",
-        category: "Healthcare Volunteer"
-      }
-    ];
-
-    let currentPage = 1;
-    const cardsPerPage = 3;
-
-    function displayHeroes() {
-      const start = (currentPage - 1) * cardsPerPage;
-      const end = start + cardsPerPage;
-      const search = document.getElementById("searchInput").value.toLowerCase();
-      const category = document.getElementById("categoryFilter").value;
-
-      const filtered = heroes.filter(h =>
-        (h.name.toLowerCase().includes(search) || h.title.toLowerCase().includes(search)) &&
-        (category === "All" || h.category === category)
-      );
-
-      const visibleHeroes = filtered.slice(start, end);
-      const container = document.getElementById("heroCards");
-      container.innerHTML = "";
-
-      visibleHeroes.forEach(hero => {
-        const card = document.createElement("div");
-        card.className = "hero-card";
-        card.innerHTML = `
-          <img src="${hero.image}" alt="${hero.name}" />
-          <h3>${hero.name}</h3>
-          <h4>${hero.title}</h4>
-          <p>${hero.description}</p>
-        `;
-        card.addEventListener("click", () => openModal(hero));
-        container.appendChild(card);
-      });
-
-      document.getElementById("pageNum").innerText = `Page ${currentPage}`;
-    }
-
-    function nextPage() {
-      currentPage++;
-      displayHeroes();
-    }
-
-    function prevPage() {
-      if (currentPage > 1) {
-        currentPage--;
-        displayHeroes();
-      }
-    }
-
-    function openModal(hero) {
-      document.getElementById("modalImage").src = hero.image;
-      document.getElementById("modalName").innerText = hero.name;
-      document.getElementById("modalTitle").innerText = hero.title;
-      document.getElementById("modalDescription").innerText = hero.fullDescription;
-      document.getElementById("heroModal").style.display = "flex";
-    }
-
-    function closeModal() {
-      document.getElementById("heroModal").style.display = "none";
-    }
-
-    document.getElementById("searchInput").addEventListener("input", () => {
-      currentPage = 1;
-      displayHeroes();
-    });
-
-    document.getElementById("categoryFilter").addEventListener("change", () => {
-      currentPage = 1;
-      displayHeroes();
-    });
-
-    window.onclick = function(event) {
-      const modal = document.getElementById("heroModal");
-      if (event.target === modal) closeModal();
-    };
-
-    displayHeroes();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
