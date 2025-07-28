@@ -3,289 +3,265 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hero Spotlight</title>
-  <link rel="stylesheet" href="styles.css" />
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
       margin: 0;
-      background-color: #f4f4f4;
+      padding: 0;
     }
-    header {
-      background-color: #003300;
+    h1 {
+      text-align: center;
+      background-color: #111;
       color: white;
-      padding: 20px;
-      text-align: center;
+      padding: 20px 0;
+      margin-bottom: 20px;
     }
-    .controls {
-      text-align: center;
-      margin: 20px;
+    .search-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
     }
-    .controls input, .controls select {
+    .search-container input,
+    .search-container select {
       padding: 8px;
-      margin: 0 5px;
       font-size: 16px;
     }
-    .hero-container {
+    .card-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      padding: 10px 20px 50px 20px;
+      padding: 0 20px;
     }
     .hero-card {
-      background: white;
-      border-radius: 8px;
-      width: 250px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      background-color: white;
+      border-radius: 10px;
       padding: 15px;
       text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 250px;
       cursor: pointer;
     }
     .hero-card img {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 10px;
     }
     .pagination {
       text-align: center;
       margin: 20px 0;
     }
     .pagination button {
-      padding: 8px 15px;
-      font-size: 16px;
+      padding: 8px 12px;
       margin: 0 5px;
-      cursor: pointer;
+      font-size: 16px;
     }
-    /* Modal styles */
     .modal {
       display: none;
       position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.7);
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
     }
     .modal-content {
-      background-color: #fff;
-      margin: 10% auto;
+      background-color: white;
       padding: 20px;
-      border: 1px solid #888;
-      width: 90%;
-      max-width: 500px;
       border-radius: 10px;
+      max-width: 400px;
+      width: 90%;
       text-align: center;
       position: relative;
     }
     .modal-content img {
-      width: 150px;
-      height: 150px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 15px;
     }
-    .close {
+    .close-btn {
       position: absolute;
       top: 10px;
-      right: 20px;
-      font-size: 30px;
+      right: 15px;
+      font-size: 20px;
       cursor: pointer;
     }
-    .arrow {
-      position: absolute;
-      top: 50%;
-      font-size: 30px;
-      background: #fff;
-      padding: 5px 10px;
-      cursor: pointer;
-      border-radius: 50%;
+    footer {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 30px;
     }
-    .arrow.left { left: 10px; }
-    .arrow.right { right: 10px; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Hero Spotlight</h1>
-  </header>
-  <div class="controls">
-    <input type="text" id="searchInput" placeholder="Search heroes..." />
+  <h1>Hero Spotlight</h1>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search heroes...">
     <select id="categoryFilter">
       <option value="All">All Categories</option>
+      <option value="Community Educator">Community Educator</option>
+      <option value="Volunteer First Responder">Volunteer First Responder</option>
+      <option value="Youth Mentor">Youth Mentor</option>
+      <option value="Environmental Advocate">Environmental Advocate</option>
+      <option value="Neighborhood Guardian">Neighborhood Guardian</option>
+      <option value="Healthcare Volunteer">Healthcare Volunteer</option>
     </select>
   </div>
-  <div class="hero-container" id="heroContainer"></div>
+  <div class="card-container" id="heroCards"></div>
   <div class="pagination">
-    <button id="prevBtn">Previous</button>
+    <button onclick="prevPage()">Previous</button>
     <span id="pageNum">Page 1</span>
-    <button id="nextBtn">Next</button>
+    <button onclick="nextPage()">Next</button>
   </div>
 
-  <div id="heroModal" class="modal">
+  <div class="modal" id="heroModal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <span class="arrow left" onclick="prevModalHero()">&#10094;</span>
-      <span class="arrow right" onclick="nextModalHero()">&#10095;</span>
-      <img id="modalImage" src="" alt="Hero image" />
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="" alt="Hero Image" />
       <h2 id="modalName"></h2>
-      <h4 id="modalRole"></h4>
-      <p id="modalStory"></p>
+      <h4 id="modalTitle"></h4>
+      <p id="modalDescription"></p>
     </div>
   </div>
 
-  <footer style="background: #003300; color: white; text-align: center; padding: 10px;">
+  <footer>
     © 2025 Everyday Heroes Network
   </footer>
 
   <script>
-    const heroData = [
+    const heroes = [
       {
         name: "Ajun Babatunde",
-        role: "Community Educator",
+        title: "Community Educator",
+        description: "Ajun has helped over 500 children access quality education in rural areas.",
+        fullDescription: "Ajun is a dedicated community educator who works in underserved areas, ensuring access to quality education for over 500 children.",
         image: "images/heroes/ajun.jpg",
-        category: "Education",
-        shortStory: "Ajun has helped over 500 children access quality education in rural areas.",
-        fullStory: "Ajun Babatunde has dedicated his life to improving rural education. Over the past decade, he has launched community tutoring centers, distributed learning materials, and mentored volunteer teachers across three states."
+        category: "Community Educator"
       },
       {
         name: "Sarah Olamide",
-        role: "Volunteer First Responder",
+        title: "Volunteer First Responder",
+        description: "Sarah has saved lives during emergencies across her region.",
+        fullDescription: "Sarah volunteers every weekend as an emergency medical responder, saving lives across multiple states.",
         image: "images/heroes/sarah.jpg",
-        category: "Health",
-        shortStory: "Sarah has saved lives during emergencies across her region.",
-        fullStory: "Sarah volunteers every weekend as an emergency medical responder. Her quick actions during floods and road accidents have earned her the nickname 'Angel of Safety' in her community."
+        category: "Volunteer First Responder"
       },
       {
         name: "Chinedu Okafor",
-        role: "Youth Mentor",
+        title: "Youth Mentor",
+        description: "Chinedu mentors young boys, helping them grow into responsible men.",
+        fullDescription: "As a mentor, Chinedu runs workshops that guide young boys on education, character building, and leadership.",
         image: "images/heroes/chinedu.jpg",
-        category: "Mentorship",
-        shortStory: "Chinedu mentors young boys, helping them grow into responsible men.",
-        fullStory: "Chinedu grew up without a mentor and knows the challenges of youth. He runs weekly 'Brotherhood Circles' to teach responsibility, discipline, and emotional growth to boys aged 10-18."
+        category: "Youth Mentor"
       },
       {
         name: "Aisha Bello",
-        role: "Environmental Advocate",
+        title: "Environmental Advocate",
+        description: "Aisha organizes clean-up drives...",
+        fullDescription: "Aisha is an environmentalist who leads weekly community clean-up events and tree planting campaigns.",
         image: "images/heroes/aisha.jpg",
-        category: "Environment",
-        shortStory: "Aisha organizes clean-up drives...",
-        fullStory: "Every month, Aisha leads a volunteer squad to clean rivers, plant trees, and educate schools about recycling. Her goal: a greener, cleaner Africa."
+        category: "Environmental Advocate"
       },
       {
         name: "Emeka Duru",
-        role: "Neighborhood Guardian",
+        title: "Neighborhood Guardian",
+        description: "Emeka ensures community safety...",
+        fullDescription: "Emeka leads a local neighborhood watch program that keeps families safe and informed.",
         image: "images/heroes/emeka.jpg",
-        category: "Security",
-        shortStory: "Emeka ensures community safety...",
-        fullStory: "Retired from the army, Emeka now trains neighborhood watch groups. His 'Safe Streets' initiative has reduced petty crime by 60% in his local district."
+        category: "Neighborhood Guardian"
       },
       {
         name: "Grace Ijeoma",
-        role: "Healthcare Volunteer",
+        title: "Healthcare Volunteer",
+        description: "Grace volunteers at clinics...",
+        fullDescription: "Grace provides essential medical services at local outreach clinics during weekends.",
         image: "images/heroes/grace.jpg",
-        category: "Health",
-        shortStory: "Grace volunteers at clinics...",
-        fullStory: "Grace spends her weekends working pro bono in understaffed clinics. She also teaches hygiene to women in remote villages and advocates for maternal care."
+        category: "Healthcare Volunteer"
       }
     ];
-    let currentPage = 1, heroesPerPage = 6, filteredHeroes = [...heroData], currentHeroIndex = 0;
 
-    const heroContainer = document.getElementById("heroContainer");
-    const searchInput = document.getElementById("searchInput");
-    const categoryFilter = document.getElementById("categoryFilter");
-    const pageNum = document.getElementById("pageNum");
-
-    function populateCategories() {
-      const categories = ["All", ...new Set(heroData.map(h => h.category))];
-      categories.forEach(cat => {
-        const opt = document.createElement("option");
-        opt.value = cat;
-        opt.textContent = cat;
-        categoryFilter.appendChild(opt);
-      });
-    }
+    let currentPage = 1;
+    const cardsPerPage = 3;
 
     function displayHeroes() {
-      heroContainer.innerHTML = "";
-      const start = (currentPage - 1) * heroesPerPage;
-      const currentHeroes = filteredHeroes.slice(start, start + heroesPerPage);
+      const start = (currentPage - 1) * cardsPerPage;
+      const end = start + cardsPerPage;
+      const search = document.getElementById("searchInput").value.toLowerCase();
+      const category = document.getElementById("categoryFilter").value;
 
-      currentHeroes.forEach((hero, index) => {
+      const filtered = heroes.filter(h =>
+        (h.name.toLowerCase().includes(search) || h.title.toLowerCase().includes(search)) &&
+        (category === "All" || h.category === category)
+      );
+
+      const visibleHeroes = filtered.slice(start, end);
+      const container = document.getElementById("heroCards");
+      container.innerHTML = "";
+
+      visibleHeroes.forEach(hero => {
         const card = document.createElement("div");
         card.className = "hero-card";
-        card.innerHTML = \`
-          <img src="\${hero.image}" alt="\${hero.name}" />
-          <h3>\${hero.name}</h3>
-          <strong>\${hero.role}</strong>
-          <p>\${hero.shortStory}</p>
-        \`;
-        card.addEventListener("click", () => openModal(start + index));
-        heroContainer.appendChild(card);
+        card.innerHTML = `
+          <img src="${hero.image}" alt="${hero.name}" />
+          <h3>${hero.name}</h3>
+          <h4>${hero.title}</h4>
+          <p>${hero.description}</p>
+        `;
+        card.addEventListener("click", () => openModal(hero));
+        container.appendChild(card);
       });
 
-      pageNum.textContent = \`Page \${currentPage}\`;
+      document.getElementById("pageNum").innerText = `Page ${currentPage}`;
     }
 
-    function openModal(index) {
-      currentHeroIndex = index;
-      const hero = filteredHeroes[index];
+    function nextPage() {
+      currentPage++;
+      displayHeroes();
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        displayHeroes();
+      }
+    }
+
+    function openModal(hero) {
       document.getElementById("modalImage").src = hero.image;
-      document.getElementById("modalName").textContent = hero.name;
-      document.getElementById("modalRole").textContent = hero.role;
-      document.getElementById("modalStory").textContent = hero.fullStory;
-      document.getElementById("heroModal").style.display = "block";
+      document.getElementById("modalName").innerText = hero.name;
+      document.getElementById("modalTitle").innerText = hero.title;
+      document.getElementById("modalDescription").innerText = hero.fullDescription;
+      document.getElementById("heroModal").style.display = "flex";
     }
 
     function closeModal() {
       document.getElementById("heroModal").style.display = "none";
     }
 
-    function prevModalHero() {
-      currentHeroIndex = (currentHeroIndex - 1 + filteredHeroes.length) % filteredHeroes.length;
-      openModal(currentHeroIndex);
-    }
-
-    function nextModalHero() {
-      currentHeroIndex = (currentHeroIndex + 1) % filteredHeroes.length;
-      openModal(currentHeroIndex);
-    }
-
-    document.getElementById("prevBtn").addEventListener("click", () => {
-      if (currentPage > 1) {
-        currentPage--;
-        displayHeroes();
-      }
-    });
-
-    document.getElementById("nextBtn").addEventListener("click", () => {
-      if ((currentPage * heroesPerPage) < filteredHeroes.length) {
-        currentPage++;
-        displayHeroes();
-      }
-    });
-
-    searchInput.addEventListener("input", filterHeroes);
-    categoryFilter.addEventListener("change", filterHeroes);
-
-    function filterHeroes() {
-      const searchVal = searchInput.value.toLowerCase();
-      const categoryVal = categoryFilter.value;
-      filteredHeroes = heroData.filter(hero => {
-        const matchesSearch = hero.name.toLowerCase().includes(searchVal);
-        const matchesCategory = categoryVal === "All" || hero.category === categoryVal;
-        return matchesSearch && matchesCategory;
-      });
+    document.getElementById("searchInput").addEventListener("input", () => {
       currentPage = 1;
       displayHeroes();
-    }
+    });
 
-    populateCategories();
+    document.getElementById("categoryFilter").addEventListener("change", () => {
+      currentPage = 1;
+      displayHeroes();
+    });
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("heroModal");
+      if (event.target === modal) closeModal();
+    };
+
     displayHeroes();
   </script>
 </body>
