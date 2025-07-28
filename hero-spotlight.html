@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <title>Hero Spotlight - EHN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --primary: #002b6c;
+      --bg: #f8f9fa;
+      --text: #222;
+      --card-bg: white;
+    }
+    [data-theme="dark"] {
+      --primary: #66aaff;
+      --bg: #121212;
+      --text: #f5f5f5;
+      --card-bg: #1e1e1e;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    nav {
+      background: #1e5dd2;
+      text-align: center;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+    .toggle-mode {
+      float: right;
+      margin: 10px;
+    }
+    .tabs {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .tabs button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 5px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .search-box {
+      text-align: center;
+      margin: 10px 0;
+    }
+    .search-box input {
+      padding: 10px;
+      width: 60%;
+      max-width: 400px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .hero-card {
+      background: var(--card-bg);
+      padding: 15px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .hero-card:hover {
+      transform: scale(1.02);
+    }
+    .hero-thumb {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ccc;
+      margin-bottom: 10px;
+    }
+    .pagination {
+      text-align: center;
+      margin: 20px;
+    }
+    .pagination button {
+      padding: 10px 15px;
+      margin: 0 5px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      background: var(--primary);
+      color: white;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      z-index: 9999;
+      width: 80%;
+      max-width: 500px;
+    }
+    .modal h3 { margin-top: 0; }
+    .modal-close {
+      float: right;
+      cursor: pointer;
+      color: red;
+    }
+    .overlay {
+      display: none;
+      position: fixed;
+      top:0; left:0;
+      width:100%;
+      height:100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 9998;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Hero Spotlight</h1>
+  <button class="toggle-mode" onclick="toggleMode()">Toggle Dark/Light</button>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="nominate.html">Nominate</a>
+  <a href="hero-spotlight.html">Hero Spotlight</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+
+  <div class="tabs">
+    <button onclick="filterCategory('All')">All</button>
+    <button onclick="filterCategory('Educator')">Educators</button>
+    <button onclick="filterCategory('Responder')">Responders</button>
+    <button onclick="filterCategory('Volunteer')">Volunteers</button>
+    <button onclick="filterCategory('Mentor')">Mentors</button>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" oninput="renderHeroes()" placeholder="Search by name or role..." />
+  </div>
+
+  <div class="hero-grid" id="heroGrid"></div>
+
+  <div class="pagination">
+    <button onclick="prevPage()">Prev</button>
+    <span id="pageNum"></span>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+</div>
+
+<div class="overlay" id="overlay" onclick="closeModal()"></div>
+<div class="modal" id="heroModal">
+  <span class="modal-close" onclick="closeModal()">×</span>
+  <h3 id="modalName"></h3>
+  <p id="modalRole"></p>
+  <p id="modalDesc"></p>
+</div>
+
+<footer>
+  &copy; 2025 Everyday Heroes Network
+</footer>
+
+<script>
+  const heroes = [
+    { name: "Ajun Babatunde", role: "Educator", image: "https://via.placeholder.com/200?text=Ajun", desc: "Ajun volunteers weekly teaching underprivileged kids." },
+    { name: "Kunle Ade", role: "Responder", image: "https://via.placeholder.com/200?text=Kunle", desc: "Kunle responds to emergencies before help arrives." },
+    { name: "Sarah Olamide", role: "Volunteer", image: "https://via.placeholder.com/200?text=Sarah", desc: "Sarah cleans public streets with joy and care." },
+    { name: "Blessing James", role: "Mentor", image: "https://via.placeholder.com/200?text=Blessing", desc: "Blessing mentors teenage girls through workshops." },
+    { name: "Chinedu Obi", role: "Mentor", image: "https://via.placeholder.com/200?text=Chinedu", desc: "Chinedu trains young men in plumbing and trades." },
+    { name: "Fatima Bello", role: "Educator", image: "https://via.placeholder.com/200?text=Fatima", desc: "Fatima runs a free weekend learning club for girls." },
+    { name: "Ifeanyi Okoro", role: "Responder", image: "https://via.placeholder.com/200?text=Ifeanyi", desc: "Firefighter turned volunteer who helps rebuild homes." }
+  ];
+
+  let categoryFilter = "All";
+  let currentPage = 1;
+  const perPage = 6;
+
+  function renderHeroes() {
+    const grid = document.getElementById("heroGrid");
+    const search = document.getElementById("searchInput").value.toLowerCase();
+    let filtered = heroes.filter(hero => {
+      const matchesSearch = hero.name.toLowerCase().includes(search) || hero.role.toLowerCase().includes(search);
+      const matchesCategory = categoryFilter === "All" || hero.role === categoryFilter;
+      return matchesSearch && matchesCategory;
+    });
+
+    const totalPages = Math.ceil(filtered.length / perPage);
+    currentPage = Math.min(currentPage, totalPages || 1);
+    const start = (currentPage - 1) * perPage;
+    const pageHeroes = filtered.slice(start, start + perPage);
+
+    grid.innerHTML = "";
+    for (let hero of pageHeroes) {
+      grid.innerHTML += `
+        <div class="hero-card" onclick="openModal('${hero.name}', '${hero.role}', '${hero.desc}')">
+          <img src="${hero.image}" class="hero-thumb" alt="${hero.name}">
+          <h3>${hero.name}</h3>
+          <p>${hero.role}</p>
+        </div>
+      `;
+    }
+
+    document.getElementById("pageNum").textContent = `Page ${currentPage} of ${totalPages || 1}`;
+  }
+
+  function filterCategory(cat) {
+    categoryFilter = cat;
+    currentPage = 1;
+    renderHeroes();
+  }
+
+  function prevPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      renderHeroes();
+    }
+  }
+
+  function nextPage() {
+    const total = Math.ceil(heroes.filter(hero => categoryFilter === "All" || hero.role === categoryFilter).length / perPage);
+    if (currentPage < total) {
+      currentPage++;
+      renderHeroes();
+    }
+  }
+
+  function toggleMode() {
+    const html = document.documentElement;
+    html.dataset.theme = html.dataset.theme === "light" ? "dark" : "light";
+  }
+
+  function openModal(name, role, desc) {
+    document.getElementById("modalName").textContent = name;
+    document.getElementById("modalRole").textContent = role;
+    document.getElementById("modalDesc").textContent = desc;
+    document.getElementById("heroModal").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("heroModal").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+  }
+
+  renderHeroes();
+</script>
+</body>
+</html>
