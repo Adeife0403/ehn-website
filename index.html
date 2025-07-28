@@ -1,180 +1,62 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Everyday Heroes Network (EHN)</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f7fa;
-      color: #333;
-    }
-    header {
-      background-color: #1A237E;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      text-align: center;
-      padding: 10px;
-      background-color: #3949ab;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-    .hero {
-      background-color: #FFD700;
-      padding: 50px 20px;
-      text-align: center;
-    }
-    .hero h1 {
-      margin-bottom: 10px;
-    }
-    .section {
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .cta {
-      background-color: #1A237E;
-      color: white;
-      padding: 30px;
-    }
-    .footer {
-      background-color: #222;
-      color: #bbb;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-    }
-    .button {
-      background-color: #FFD700;
-      color: #1A237E;
-      padding: 12px 20px;
-      border: none;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-    }
-    .button:hover {
-      background-color: #fbc02d;
-    }
-    .social-media, .sponsors {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-    .social-media img, .sponsors img {
-      width: 40px;
-      height: 40px;
-    }
-    .sponsors img {
-      width: 100px;
-      height: auto;
-    }
-    .nominate-button {
-  background-color: #ff6f00;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
+  <title>Everyday Heroes Network</title>
+  
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  header, footer {
+    background-color: #ffd700;
+    padding: 20px;
+    text-align: center;
+  }
+  nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  .nominate-button {
+    background-color: #ff6f00;
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  .nominate-button:hover {
+    background-color: #e65c00;
+  }
+  main {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+</style>
 
-.nominate-button:hover {
-  background-color: #e65c00;
-}
-  </style>
 </head>
 <body>
-
   <header>
-    <h1>Everyday Heroes Network</h1>
-    <p>Celebrating the Unsung</p>
-  </header>
-
-  <nav>
-    <a href="#about">About</a>
-    <a href="#nominate">Nominate</a>
-    <a href="heroes.html" style="margin: 0 15px;">Hero Spotlight</a>
-
-    <a href="contacts.html">Contact</a>
-  </nav>
-
-  <div class="hero">
-    <h1>Everyday People. Extraordinary Impact.</h1>
-    <p>Discover, celebrate, and support the unsung heroes in your community.</p>
-     <a href="nominate.html" class="nominate-button">Nominate a Hero</a>
-   
-  </div>
-
-  <div class="section" id="about">
-    <h2>What is EHN?</h2>
-    <p>Everyday Heroes Network (EHN) is a platform that uplifts and recognizes individuals who make silent but significant impacts in their communities. We tell their stories and honor their work.</p>
-    <p>The Everyday Heroes Network (EHN) is a digital platform and storytelling initiative that highlights the unsung contributions of ordinary people making extraordinary differences in their communities — from street sweepers and nurses to single mothers/fathers, teachers, drivers, market women,  and neighborhood volunteers. The goal is to recognize, appreciate, and amplify the impact of everyday heroes who often go unnoticed. EHN will tell their stories, foster a culture of gratitude, and build a community inspired by real-world resilience and kindness.
-</p>
-
-  </div>
-
-  <div class="section" id="stories">
-    <h2>Monthly Hero Spotlight (F)</h2>
+    <h1>Welcome to Everyday Heroes Network</h1>
     
-<div class="hero-story">
-  <h3>Ajiun – Flood Relief Teacher</h3><img src="ajiun min.jpg" alt="Ajiun" width="300">
-  <p>Ajiun volunteered during the 2022 flood in Ajanlekoko State, teaching displaced children daily in a makeshift classroom. Her dedication gave hope when it was needed most.</p>
-</div>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="heroes.html">Hero Spotlight</a>
+  <a href="nominate.html" class="nominate-button">Nominate</a>
+</nav>
 
-  </div>
-
-  <div class="section" id="nominate">
-    <h2>Monthly Hero Spotlight (M)</h2>
-
-<div class="hero-story">
-  <h3>Kunle Ade – Local Waste Recycler</h3><img src="garbage.jpg" alt="Mary Okon" width="300">
-  <p>Kunle started a recycling initiative in his neighborhood, collecting over 10,000 plastic bottles and educating youth about environmental responsibility.</p>
-</div>
-   <section id="mission-vision" style="max-width: 800px; margin: 40px auto; padding: 20px; background-color: #f9f9f9; border-left: 5px solid #ffd700;">
-  <h2 style="text-align: center;">Our Mission & Vision</h2>
-  <p><strong>Mission:</strong> To honor and spotlight everyday individuals who positively impact their communities, often without recognition or reward.</p>
-  <p><strong>Vision:</strong> A world where quiet acts of service are valued, shared, and celebrated as vital contributions to society.</p>
-</section>
-  </div>
-
-  <div class="section">
-    <h2>Follow Us</h2>
-    <div class="social-media">
-      <a href="https://instagram.com/everydayheroesnetwork" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
-      <a href="https://facebook.com/everydayheroesnetwork" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
-      <a href="https://youtube.com/@everydayheroesnetwork" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Youtube%28amin%29.png" alt="YouTube"></a>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Our Sponsors</h2>
-    <div class="sponsors">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/UNDP_logo.svg/2560px-UNDP_logo.svg.png" alt="Sponsor 1">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Red_Cross_logo.svg/1200px-Red_Cross_logo.svg.png" alt="Sponsor 2">
-    </div>
-  </div>
-
-  <div class="cta">
-    <h2>Join the Movement</h2>
-    <p>Follow us, share stories, and be part of the change. Gratitude should be public.</p>
-  </div>
-
-  <div class="footer" id="contact">
-    <p>&copy; 2025 Everyday Heroes Network. All rights reserved.</p>
-    <p>Email: contact@ehn.org | Instagram: @everydayheroesnetwork</p>
-  </div>
+  </header>
+  <main>
+    <p>This is the homepage of EHN. Celebrate and nominate everyday heroes around you.</p>
+  </main>
+  <footer>&copy; 2025 Everyday Heroes Network</footer>
 </body>
 </html>

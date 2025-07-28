@@ -1,98 +1,85 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nominate a Hero - Everyday Heroes Network</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
-      margin: 0;
-      padding: 0;
-    }
-    header, footer {
-      background-color: #ffd700;
-      text-align: center;
-      padding: 20px;
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #333;
-    }
-    main {
-      max-width: 700px;
-      margin: 40px auto;
-      background-color: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    form label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-    form input[type="submit"] {
-      margin-top: 20px;
-      background-color: #444;
-      color: white;
-      border: none;
-      cursor: pointer;
-      padding: 12px 20px;
-    }
-    form input[type="submit"]:hover {
-      background-color: #222;
-    }
-  </style>
+  <title>Nominate a Hero - EHN</title>
+  
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  header, footer {
+    background-color: #ffd700;
+    padding: 20px;
+    text-align: center;
+  }
+  nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  .nominate-button {
+    background-color: #ff6f00;
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  .nominate-button:hover {
+    background-color: #e65c00;
+  }
+  main {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+</style>
+
 </head>
 <body>
   <header>
     <h1>Nominate an Everyday Hero</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="heroes.html">Hero Spotlight</a>
-    </nav>
+    
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="heroes.html">Hero Spotlight</a>
+  <a href="nominate.html" class="nominate-button">Nominate</a>
+</nav>
+
   </header>
   <main>
     <form action="https://formspree.io/f/movlwlla" method="POST">
       <label for="nominator">Your Name</label>
-      <input type="text" id="nominator" name="nominator" required />
+      <input type="text" id="nominator" name="nominator" required>
 
       <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required />
+      <input type="email" id="email" name="email" required>
 
       <label for="hero-name">Hero's Full Name</label>
-      <input type="text" id="hero-name" name="hero-name" required />
+      <input type="text" id="hero-name" name="hero-name" required>
 
       <label for="hero-contact">Hero's Contact (optional)</label>
-      <input type="text" id="hero-contact" name="hero-contact" />
+      <input type="text" id="hero-contact" name="hero-contact">
 
       <label for="role">Hero's Role or Contribution</label>
-      <input type="text" id="role" name="role" required />
+      <input type="text" id="role" name="role" required>
 
       <label for="impact">Describe the Hero's Impact</label>
       <textarea id="impact" name="impact" rows="5" required></textarea>
 
       <label for="photo">Upload a Photo (optional)</label>
-      <input type="file" id="photo" name="photo" />
+      <input type="file" id="photo" name="photo">
 
-      <input type="submit" value="Submit Nomination" />
+      <input type="submit" value="Submit Nomination">
     </form>
   </main>
-  <footer>
-    &copy; 2025 Everyday Heroes Network
-  </footer>
+  <footer>&copy; 2025 Everyday Heroes Network</footer>
 </body>
 </html>

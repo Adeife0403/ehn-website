@@ -1,82 +1,70 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hero Spotlight - Everyday Heroes Network</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #222;
-    }
-    header {
-      background-color: #444;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      text-align: center;
-      background-color: #333;
-      padding: 10px 0;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-    }
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-      background-color: white;
-    }
-    .hero-card {
-      border: 1px solid #ccc;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      background-color: #fafafa;
-    }
-    .hero-card h3 {
-      margin-top: 0;
-    }
-    footer {
-      background-color: #eee;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-  </style>
+  <title>Hero Spotlight - EHN</title>
+  
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  header, footer {
+    background-color: #ffd700;
+    padding: 20px;
+    text-align: center;
+  }
+  nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  .nominate-button {
+    background-color: #ff6f00;
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  .nominate-button:hover {
+    background-color: #e65c00;
+  }
+  main {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+</style>
+
 </head>
 <body>
   <header>
     <h1>Hero Spotlight</h1>
+    
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="heroes.html">Hero Spotlight</a>
+  <a href="nominate.html" class="nominate-button">Nominate</a>
+</nav>
+
   </header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-  </nav>
   <main>
-    <div class="hero-card">
-      <h3>Jane Doe – Community Food Organizer</h3>
-      <p>Jane has been providing weekly meals to families in need for over 10 years. Her consistent acts of compassion make her a local hero.</p>
-    </div>
-    <div class="hero-card">
-      <h3>Michael Adebayo – Street Cleaner With a Smile</h3>
-      <p>Michael goes beyond cleaning streets — he brightens people’s days with friendly greetings, showing how small gestures create big impact.</p>
-    </div>
-    <div class="hero-card">
-      <h3>Amina Yusuf – Volunteer Teacher</h3>
-      <p>Despite having a full-time job, Amina tutors underprivileged children in the evenings, helping them succeed academically and socially.</p>
-    </div>
+    <article>
+      <h3>Jane Doe - Community Health Volunteer</h3>
+      <p>Jane has served her neighborhood tirelessly by organizing health drives and providing first-aid training for over 10 years.</p>
+    </article>
+    <hr>
+    <article>
+      <h3>Mark Obi - Youth Mentor</h3>
+      <p>Mark supports underprivileged teens through weekend mentorship programs and has helped dozens gain university admission.</p>
+    </article>
   </main>
-  <footer>
-    &copy; 2025 Everyday Heroes Network
-  </footer>
+  <footer>&copy; 2025 Everyday Heroes Network</footer>
 </body>
 </html>
