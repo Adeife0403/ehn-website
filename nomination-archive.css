@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.header {
+  background: #2a623d;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+}
+
+.nav a {
+  color: white;
+  margin-left: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #ffd700;
+}
+
+.intro {
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-size: 1rem;
+  background: #e8f5e9;
+  color: #2a623d;
+  font-weight: 500;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.nomination-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+}
+
+.nomination-card:hover {
+  transform: translateY(-5px);
+}
+
+.nomination-card h2 {
+  font-size: 1.2rem;
+  color: #2a623d;
+  margin: 0 0 0.5rem;
+}
+
+.nomination-card .category {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #444;
+}
+
+.nomination-card .date {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+.nomination-card .note {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.status {
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.status.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status.reviewed {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.status.featured {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background: #f1f1f1;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 2rem;
+}
