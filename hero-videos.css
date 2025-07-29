@@ -1,52 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hero Videos | EHN</title>
-  <link rel="stylesheet" href="hero-videos.css" />
-</head>
-<body>
-  <header>
-    <h1>Hero Video Highlights</h1>
-    <p>Real stories. Real people. Real impact.</p>
-  </header>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fdfdfd;
+  color: #333;
+}
 
-  <section class="main-video">
-    <h2>Featured Hero Story</h2>
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" 
-              frameborder="0" 
-              allowfullscreen></iframe>
-    </div>
-  </section>
+header {
+  background-color: #002b6c;
+  color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in;
+}
 
-  <section class="video-gallery">
-    <h2>More Inspiring Stories</h2>
-    <div class="gallery-grid">
-      <div class="video-card">
-        <a href="https://www.youtube.com/watch?v=VIDEO_ID1" target="_blank">
-          <img src="images/thumb1.jpg" alt="Hero 1">
-          <p>Risi: The Community Educator</p>
-        </a>
-      </div>
-      <div class="video-card">
-        <a href="https://www.youtube.com/watch?v=VIDEO_ID2" target="_blank">
-          <img src="images/thumb2.jpg" alt="Hero 2">
-          <p>Kunle: The Waste Recycler</p>
-        </a>
-      </div>
-      <div class="video-card">
-        <a href="https://www.youtube.com/watch?v=VIDEO_ID3" target="_blank">
-          <img src="images/thumb3.jpg" alt="Hero 3">
-          <p>Ajiun: Flood Relief Teacher</p>
-        </a>
-      </div>
-    </div>
-  </section>
+h1, h2 {
+  margin-bottom: 10px;
+}
 
-  <footer>
-    <a href="hero-spotlight.html">← Back to Hero Spotlight</a>
-  </footer>
-</body>
-</html>
+.main-video, .video-gallery {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 20px 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.video-card {
+  width: 280px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
+  animation: zoomIn 0.8s ease-in;
+}
+
+.video-card:hover {
+  transform: scale(1.05);
+}
+
+.video-card img {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.video-card p {
+  padding: 10px;
+  font-weight: bold;
+  color: #002b6c;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  background-color: #eee;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .gallery-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-card {
+    width: 90%;
+  }
+}
