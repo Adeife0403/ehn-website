@@ -9,6 +9,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #f9f9f9;
     }
     header {
       background-color: #002b6c;
@@ -33,12 +34,6 @@
       padding: 40px 20px;
       text-align: center;
     }
-    .hero h2 {
-      font-size: 24px;
-    }
-    .hero p {
-      font-size: 16px;
-    }
     .hero a.button {
       background-color: #e65100;
       color: white;
@@ -52,19 +47,44 @@
       padding: 40px 20px;
       text-align: center;
     }
-    section img {
-      width: 200px;
-      height: auto;
-      margin: 10px 0;
-    }
     .mission-vision {
       background-color: #f5f5f5;
       padding: 30px;
       margin-top: 30px;
     }
+    .spotlight-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+    }
+    .hero-box {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 300px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .hero-box img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
     .social-icons img {
       width: 30px;
       margin: 0 10px;
+    }
+    .testimonials, .how-help {
+      background-color: #ffffff;
+      padding: 40px 20px;
+      margin-top: 30px;
+    }
+    .testimonial {
+      font-style: italic;
+      margin-bottom: 20px;
     }
     footer {
       background-color: #eee;
@@ -95,28 +115,45 @@
 
   <section>
     <h2>What is EHN?</h2>
-    <p>Everyday Heroes Network (EHN) is a platform that uplifts and recognizes individuals who make silent but significant impacts in their communities. We tell their stories and honor their work.</p>
-    <p>The Everyday Heroes Network (EHN) is a digital platform and storytelling initiative that highlights the unsung contributions of ordinary people making extraordinary differences in their communities — from street sweepers and nurses to single mothers/fathers, teachers, drivers, market women, and neighborhood volunteers. The goal is to recognize, appreciate, and amplify the impact of everyday heroes who often go unnoticed. EHN will tell their stories, foster a culture of gratitude, and build a community inspired by real-world resilience and kindness.</p>
+    <p>Everyday Heroes Network (EHN) is a platform that uplifts and recognizes individuals who make silent but significant impacts in their communities.</p>
+    <p>From street sweepers and nurses to market women and teachers — our mission is to honor their resilience, amplify their stories, and build a culture of gratitude.</p>
   </section>
 
   <section>
-    <h2>Monthly Hero Spotlight (F)</h2>
-    <h3>Ajiun – Flood Relief Teacher</h3>
-    <img src="ajiun min.jpg" alt="Ajiun" width="300">
-    <p>Ajiun volunteered during the 2022 flood in Delta State, teaching displaced children daily in a makeshift classroom. Her dedication gave hope when it was needed most.</p>
-  </section>
-
-  <section>
-    <h2>Monthly Hero Spotlight (M)</h2>
-    <h3>Kunle Ade – Local Waste Recycler</h3>
-    <img src="garbage.jpg" alt="Kunle Ade" width="300">
-    <p>Kunle started a recycling initiative in his neighborhood, collecting over 10,000 plastic bottles and educating youth about environmental responsibility.</p>
+    <h2>Monthly Hero Spotlights</h2>
+    <div class="spotlight-section">
+      <div class="hero-box">
+        <h3>Ajiun – Flood Relief Teacher</h3>
+        <img src="images/ajiun min.jpg" alt="Ajiun">
+        <p>Ajiun volunteered during the 2022 flood in Delta State, teaching displaced children in a makeshift classroom. Her dedication gave hope when it was needed most.</p>
+      </div>
+      <div class="hero-box">
+        <h3>Kunle Ade – Local Waste Recycler</h3>
+        <img src="images/garbage.jpg" alt="Kunle Ade">
+        <p>Kunle started a recycling initiative in his neighborhood, collecting over 10,000 plastic bottles and educating youth about environmental responsibility.</p>
+      </div>
+    </div>
   </section>
 
   <section class="mission-vision">
     <h2>Our Mission & Vision</h2>
     <p><strong>Mission:</strong> To honor and spotlight everyday individuals who positively impact their communities, often without recognition or reward.</p>
     <p><strong>Vision:</strong> A world where quiet acts of service are valued, shared, and celebrated as vital contributions to society.</p>
+  </section>
+
+  <section class="testimonials">
+    <h2>What People Are Saying</h2>
+    <p class="testimonial">"EHN gave our community hero the recognition they truly deserved. We felt seen and valued." – Joy O., Lagos</p>
+    <p class="testimonial">"I was inspired to start my own volunteer project after reading the hero stories!" – Tunde A., Ibadan</p>
+  </section>
+
+  <section class="how-help">
+    <h2>How You Can Help</h2>
+    <p>🌟 Nominate someone making a difference</p>
+    <p>🤝 Volunteer your time or skills</p>
+    <p>💌 Spread the word by sharing our mission on social media</p>
+    <p>💵 Support EHN with donations or sponsorship</p>
+    <a href="contact.html" class="button">Get Involved</a>
   </section>
 
   <section>
