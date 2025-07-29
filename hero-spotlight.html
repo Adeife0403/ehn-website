@@ -1,43 +1,36 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Hero Spotlight</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hero Spotlight</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <h1>Hero Spotlight</h1>
-        <div class="search-filter">
-            <input type="text" id="searchInput" placeholder="Search heroes...">
-            <select id="categoryFilter">
-                <option value="">All Categories</option>
-                <option value="Community Educator">Community Educator</option>
-                <option value="Volunteer First Responder">Volunteer First Responder</option>
-                <option value="Youth Mentor">Youth Mentor</option>
-                <option value="Environmental Advocate">Environmental Advocate</option>
-                <option value="Neighborhood Guardian">Neighborhood Guardian</option>
-            </select>
-        </div>
-    </header>
-    <main id="heroContainer"></main>
-    <div class="pagination" id="pagination"></div>
-
-    <!-- Modal -->
-    <div id="heroModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="modalImage" class="modal-img" src="" alt="Hero image">
-            <h2 id="modalName"></h2>
-            <h4 id="modalTitle"></h4>
-            <p id="modalFullStory"></p>
-        </div>
+  <h1>Hero Spotlight</h1>
+  <div class="search-filter">
+    <input type="text" id="searchInput" placeholder="Search heroes..."/>
+    <select id="categoryFilter">
+      <option value="">All Categories</option>
+    </select>
+  </div>
+  <div id="heroContainer" class="hero-container"></div>
+  <div class="pagination">
+    <button id="prevPage">Previous</button>
+    <span id="pageNumber">Page 1</span>
+    <button id="nextPage">Next</button>
+  </div>
+  <div id="heroModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" id="modalClose">&times;</span>
+      <img id="modalImage" src="" alt="Hero Image" />
+      <h2 id="modalName"></h2>
+      <h3 id="modalRole"></h3>
+      <p id="modalStory"></p>
     </div>
-
-    <footer>
-        <p>&copy; 2025 Everyday Heroes Network</p>
-    </footer>
-
-    <script src="script.js"></script>
+  </div>
+  <footer>&copy; 2025 Everyday Heroes Network</footer>
+  <script src="script.js"></script>
 </body>
 </html>
