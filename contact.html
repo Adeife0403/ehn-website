@@ -1,12 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact | EHN</title>
+  <link rel="stylesheet" href="contact.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Contact Us</h1>
-  <p>Email: contact@ehn.org</p>
-  <p>Instagram: @everydayheroesnetwork</p>
-  <a href="index.html">← Back to Home</a>
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>If you have questions, suggestions, or want to get in touch with the Everyday Heroes Network team, please fill out the form below or reach us through our social links.</p>
+    
+    <form action="https://formspree.io/f/xovlwrbv" method="POST" id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+      <p class="form-status" id="form-status"></p>
+    </form>
+
+    <div class="contact-info">
+      <p><strong>Email:</strong> everydayheroesnet@gmail.com</p>
+      <p><strong>Instagram:</strong> <a href="#">@everydayheroesnetwork</a></p>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        status.innerHTML = "🎉 Your message has been sent successfully!";
+        form.reset();
+      } else {
+        status.innerHTML = "⚠️ There was an error sending your message. Please try again.";
+      }
+    });
+  </script>
 </body>
 </html>
