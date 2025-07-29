@@ -5,46 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hero Videos | Everyday Heroes Network</title>
   <link rel="stylesheet" href="hero-videos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 </head>
 <body>
 
-  <!-- Top navigation -->
   <nav class="top-nav">
     <a href="index.html" class="nav-link">← Back to Home</a>
   </nav>
 
-  <!-- Page header -->
   <header class="video-header">
     <h1>Hero Video Highlights</h1>
     <p>Watch inspiring stories of Everyday Heroes making a difference in our communities.</p>
   </header>
 
-  <!-- Video grid section -->
-  <section class="video-section">
-    <div class="video-grid">
-      <div class="video-card">
-        <iframe 
-          src="https://www.youtube.com/embed/k2WcOe01zwU" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+  <!-- Swiper container -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide video-card">
+        <div class="video-thumbnail">
+          <iframe 
+            src="https://www.youtube.com/embed/k2WcOe01zwU" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+        </div>
         <h3>Ajun’s Education Mission</h3>
-        <p>Ajun Babatunde helps rural children access mobile education. His journey is an inspiration.</p>
+        <p>Ajun helps rural children access mobile education. His story is powerful.</p>
       </div>
 
-      <div class="video-card">
-        <iframe 
-          src="https://www.youtube.com/embed/Z9AYPxH5NTM" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+      <!-- Slide 2 -->
+      <div class="swiper-slide video-card">
+        <div class="video-thumbnail">
+          <iframe 
+            src="https://www.youtube.com/embed/Z9AYPxH5NTM" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+        </div>
         <h3>Aisha’s Clean-Up Drive</h3>
-        <p>Aisha leads community efforts to keep the environment clean and sustainable.</p>
+        <p>Aisha leads monthly environmental efforts and youth programs.</p>
       </div>
+
+      <!-- Add more slides as needed -->
     </div>
-  </section>
+
+    <!-- Swiper Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.mySwiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
