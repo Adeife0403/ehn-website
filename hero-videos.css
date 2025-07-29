@@ -1,86 +1,63 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
-  background: #f9f9f9;
-  color: #222;
-}
-
-.video-header {
-  text-align: center;
-  padding: 2rem 1rem;
-  background-color: #064420;
-  color: white;
+  background: #f8f9fa;
 }
 
 .top-nav {
-  background-color: #033015;
-  padding: 0.75rem 1.5rem;
+  background-color: #006400;
+  padding: 1rem;
   text-align: left;
 }
 
 .nav-link {
-  color: #fff;
+  color: white;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: color 0.3s ease;
+  font-weight: bold;
 }
 
-.nav-link:hover {
-  color: #ffcc00;
-}
-.video-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+.video-header {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
 }
 
-.video-header p {
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto;
+.swiper {
+  width: 90%;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding-bottom: 3rem;
 }
 
-.video-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem;
-}
-
-.video-card {
+.swiper-slide {
   background: white;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   padding: 1rem;
-  max-width: 500px;
-  width: 100%;
   transition: transform 0.3s ease;
 }
 
-.video-card:hover {
-  transform: translateY(-5px);
-}
-
-.video-card iframe {
-  width: 100%;
-  height: 280px;
-  border-radius: 10px;
+.swiper-slide:hover {
+  transform: translateY(-6px);
 }
 
 .video-card h3 {
-  margin-top: 1rem;
-  color: #064420;
+  margin: 0.5rem 0;
+  color: #006400;
 }
 
 .video-card p {
   font-size: 0.95rem;
-  color: #444;
+  color: #555;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .video-card iframe {
-    height: 200px;
-  }
+.video-thumbnail iframe {
+  width: 100%;
+  height: 220px;
+  border-radius: 10px;
+}
+
+/* Swiper arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #006400;
 }
