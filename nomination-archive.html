@@ -3,35 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nomination Archive - Everyday Heroes Network</title>
-  <link rel="stylesheet" href="nomination-archive.css" />
+  <title>Nomination Archive | Everyday Heroes Network</title>
+  <link rel="stylesheet" href="css/nomination-archive.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header class="main-header">
-    <h1><img src="images/hero-icon.png" alt="Icon" class="icon" /> Nomination Archive</h1>
-    <nav class="top-nav">
-      <a href="index.html">Home</a>
-      <a href="hero-videos.html">Hero Videos</a>
-      <a href="hero-spotlight.html">Nominations</a>
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">EHN</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hero-videos.html">Hero Videos</a></li>
+        <li><a href="nominate.html">Nominations</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section class="intro-section">
+  <section class="archive-intro">
+    <img src="images/hero-icon.png" alt="Hero Icon" class="hero-icon" />
+    <h1>Nomination Archive</h1>
     <p>Here are some of the inspiring nominations we've received. These entries are under review and may be featured soon.</p>
   </section>
 
-  <main>
-    <div id="nomination-container" class="nomination-grid">
-      <!-- Cards will be injected by JS -->
-    </div>
-    <div class="pagination" id="pagination"></div>
-  </main>
+  <section class="nominations">
+    <div class="nomination-card">Hero Nominee 1</div>
+    <div class="nomination-card">Hero Nominee 2</div>
+    <div class="nomination-card">Hero Nominee 3</div>
+    <div class="nomination-card">Hero Nominee 4</div>
+    <div class="nomination-card">Hero Nominee 5</div>
+    <div class="nomination-card">Hero Nominee 6</div>
+  </section>
+
+  <div class="pagination">
+    <button class="page-btn">« Prev</button>
+    <button class="page-btn active">1</button>
+    <button class="page-btn">2</button>
+    <button class="page-btn">3</button>
+    <button class="page-btn">Next »</button>
+  </div>
 
   <footer class="footer">
     <p>&copy; 2025 Everyday Heroes Network. All rights reserved.</p>
   </footer>
-
-  <!-- JavaScript -->
-  <script src="nomination-archive.js"></script>
 </body>
 </html>
