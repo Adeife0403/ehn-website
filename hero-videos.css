@@ -12,6 +12,23 @@ body {
   color: white;
 }
 
+.top-nav {
+  background-color: #033015;
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffcc00;
+}
 .video-header h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
