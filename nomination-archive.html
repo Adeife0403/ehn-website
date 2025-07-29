@@ -2,50 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nomination Archive | Everyday Heroes Network</title>
-  <link rel="stylesheet" href="nomination-archive.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/nomination-archive.css"/>
 </head>
 <body>
-  <header class="header">
-    <nav class="nav">
+  <header>
+    <div class="nav-bar">
       <div class="logo">EHN</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="hero-videos.html">Hero Videos</a></li>
-        <li><a href="nominate.html">Nominations</a></li>
-      </ul>
-    </nav>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="hero-videos.html">Hero Videos</a>
+        <a href="nominate.html">Nominations</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="archive-intro">
-    <img src="images/hero-icon.png" alt="Hero Icon" class="hero-icon" />
-    <h1>Nomination Archive</h1>
-    <p>Here are some of the inspiring nominations we've received. These entries are under review and may be featured soon.</p>
-  </section>
+  <main>
+    <section class="archive-intro">
+      <h1>Nomination Archive</h1>
+      <p>Here are some of the inspiring nominations we've received. These entries are under review and may be featured soon.</p>
+    </section>
 
-  <section class="nominations">
-    <div class="nomination-card">Hero Nominee 1</div>
-    <div class="nomination-card">Hero Nominee 2</div>
-    <div class="nomination-card">Hero Nominee 3</div>
-    <div class="nomination-card">Hero Nominee 4</div>
-    <div class="nomination-card">Hero Nominee 5</div>
-    <div class="nomination-card">Hero Nominee 6</div>
-  </section>
+    <section id="nomination-cards" class="nomination-grid">
+      <!-- JavaScript will insert cards here -->
+    </section>
 
-  <div class="pagination">
-    <button class="page-btn">« Prev</button>
-    <button class="page-btn active">1</button>
-    <button class="page-btn">2</button>
-    <button class="page-btn">3</button>
-    <button class="page-btn">Next »</button>
-  </div>
+    <div id="pagination" class="pagination"></div>
+  </main>
 
-  <footer class="footer">
-    <p>&copy; 2025 Everyday Heroes Network. All rights reserved.</p>
+  <footer>
+    <p>© 2025 Everyday Heroes Network. All rights reserved.</p>
   </footer>
-  <!-- Pagination and nomination scripts -->
-    <script src="nomination-archive.js"></script>
+
+  <script src="nomination-archive.js"></script>
 </body>
 </html>
