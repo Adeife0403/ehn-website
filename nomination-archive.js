@@ -1,4 +1,4 @@
-onst nominations = [
+const nominations = [
   {
     name: "John Okoro",
     role: "Youth Advocate",
