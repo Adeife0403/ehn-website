@@ -22,7 +22,7 @@ function renderHeroes() {
     );
 
     const pageHeroes = filtered.slice((currentPage - 1) * perPage, currentPage * perPage);
-    document.getElementById("pageNumber").textContent = Page ${currentPage};
+    document.getElementById("pageNumber").textContent = `Page ${currentPage}`;
 
     for (let h of pageHeroes) {
         const card = document.createElement("div");
