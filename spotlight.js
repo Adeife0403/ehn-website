@@ -5,7 +5,8 @@ const heroes = [
     { name: "Aisha Bello", title: "Environmental Advocate", image: "aisha.jpg", short: "Aisha organizes clean-up drives...", full: "Aisha organizes monthly clean-up drives and tree planting events to raise awareness about climate change and sustainable living." },
     { name: "Emeka Duru", title: "Neighborhood Guardian", image: "garbage.jpg", short: "Emeka ensures community safety...", full: "Emeka helps ensure community safety and care for the elderly in his neighborhood through daily patrols and volunteering for emergency response." },
     { name: "Grace Ijeoma", title: "Healthcare Volunteer", image: "grace.jpg", short: "Grace volunteers at clinics...", full: "Grace spends her weekends volunteering at clinics and helping underserved communities access basic healthcare and support." },
-    { name: "Risi Adeola", title: "Women Empowerment Advocate", image: "risi.jpg", short: "Risi trains young women...", full: "Risi Adeola provides vocational training and mentorship to young women in low-income areas, helping them become financially independent and confident leaders." }
+    { name: "Risi Adeola", title: "Women Empowerment Advocate", image: "risi.jpg", short: "Risi trains young women...", full: "Risi Adeola provides vocational training and mentorship to young women in low-income areas, helping them become financially independent and confident leaders." },
+    { name: "Salaudeen Readwan", title: "Trick Friend", image: "Yak.jpg", short: "Salaudeen train gbewiri...", full: "Salaudeen has been tricking and dumping us for years ." }
 ];
 
 let currentPage = 1;
