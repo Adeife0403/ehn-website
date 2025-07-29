@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Hero Nominee 1",
+    "story": "Helped clean the community during floods.",
+    "status": "Pending"
+  },
+  {
+    "name": "Hero Nominee 2",
+    "story": "Organized food drives for the homeless.",
+    "status": "Reviewed"
+  },
+  {
+    "name": "Hero Nominee 3",
+    "story": "Volunteered to teach kids in rural areas.",
+    "status": "Pending"
+  },
+  {
+    "name": "Hero Nominee 4",
+    "story": "Raised funds for hospital equipment.",
+    "status": "Reviewed"
+  },
+  {
+    "name": "Hero Nominee 5",
+    "story": "Led mental health awareness campaigns.",
+    "status": "Reviewed"
+  },
+  {
+    "name": "Hero Nominee 6",
+    "story": "Built temporary shelters for displaced families.",
+    "status": "Pending"
+  }
+]
