@@ -1,117 +1,113 @@
-const nominations = [
-  {
-    name: "John Okoro",
-    role: "Youth Advocate",
-    date: "July 12, 2025",
-    description: "Helping young boys stay away from street violence in Lagos suburbs.",
-    status: "pending"
-  },
-  {
-    name: "Maryam Yusuf",
-    role: "Community Health Worker",
-    date: "July 10, 2025",
-    description: "Organizing monthly wellness drives for low-income families in rural Kano.",
-    status: "reviewed"
-  },
-  {
-    name: "Michael Eze",
-    role: "Disability Rights Advocate",
-    date: "July 8, 2025",
-    description: "Michael builds ramps and accessible paths in public areas using his own resources.",
-    status: "featured"
-  },
-  // 👉 Add more nominations below
-  {
-    name: "Fatima Musa",
-    role: "Youth Volunteer",
-    date: "July 5, 2025",
-    description: "Coordinated food drives for displaced communities in Borno.",
-    status: "reviewed"
-  },
-  {
-    name: "David Ali",
-    role: "Education Champion",
-    date: "July 3, 2025",
-    description: "Offers free tutoring to orphans in Abuja.",
-    status: "pending"
-  },
-  {
-    name: "Grace Onuoha",
-    role: "Climate Activist",
-    date: "July 1, 2025",
-    description: "Leads weekly cleanups of polluted rivers in Delta state.",
-    status: "featured"
+document.addEventListener('DOMContentLoaded', function () {
+  const nominations = [
+    {
+      name: "Hero Nominee 1",
+      story: "Helped clean the community during floods.",
+      status: "Pending"
+    },
+    {
+      name: "Hero Nominee 2",
+      story: "Organized food drives for the homeless.",
+      status: "Reviewed"
+    },
+    {
+      name: "Hero Nominee 3",
+      story: "Taught underprivileged children during the lockdown.",
+      status: "Pending"
+    },
+    {
+      name: "Hero Nominee 4",
+      story: "Saved animals during a fire outbreak.",
+      status: "Reviewed"
+    },
+    {
+      name: "Hero Nominee 5",
+      story: "Raised awareness on mental health in schools.",
+      status: "Pending"
+    },
+    {
+      name: "Hero Nominee 6",
+      story: "Built water filters for rural villages.",
+      status: "Reviewed"
+    },
+    {
+      name: "Hero Nominee 7",
+      story: "Donated books and laptops to students.",
+      status: "Reviewed"
+    },
+    {
+      name: "Hero Nominee 8",
+      story: "Volunteered as a medical assistant during crisis.",
+      status: "Pending"
+    },
+    {
+      name: "Hero Nominee 9",
+      story: "Developed free tutoring programs.",
+      status: "Reviewed"
+    }
+  ];
+
+  const cardsPerPage = 6;
+  let currentPage = 1;
+
+  const container = document.getElementById('nomination-cards');
+  const pagination = document.getElementById('pagination');
+
+  function displayNominations() {
+    container.innerHTML = '';
+
+    const start = (currentPage - 1) * cardsPerPage;
+    const end = start + cardsPerPage;
+    const currentItems = nominations.slice(start, end);
+
+    currentItems.forEach(nomination => {
+      const card = document.createElement('div');
+      card.className = 'nomination-card';
+      card.innerHTML = `
+        <h3>${nomination.name}</h3>
+        <p>${nomination.story}</p>
+        <span class="status ${nomination.status.toLowerCase()}">${nomination.status}</span>
+      `;
+      container.appendChild(card);
+    });
+
+    updatePagination();
   }
-  // You can add many more entries here!
-];
 
-const nominationsPerPage = 6;
-let currentPage = 1;
+  function updatePagination() {
+    pagination.innerHTML = '';
 
-function displayNominations() {
-  const container = document.getElementById("nomination-container");
-  container.innerHTML = "";
+    const totalPages = Math.ceil(nominations.length / cardsPerPage);
 
-  const start = (currentPage - 1) * nominationsPerPage;
-  const end = start + nominationsPerPage;
-  const visible = nominations.slice(start, end);
-
-  visible.forEach((nom) => {
-    const div = document.createElement("div");
-    div.className = "nomination-card";
-
-    div.innerHTML = `
-      <h3>${nom.name}</h3>
-      <p class="role">${nom.role}</p>
-      <p class="date">Nominated: ${nom.date}</p>
-      <p>${nom.description}</p>
-      <span class="status ${nom.status}">${nom.status.charAt(0).toUpperCase() + nom.status.slice(1)}</span>
-    `;
-
-    container.appendChild(div);
-  });
-}
-
-function setupPagination() {
-  const pagination = document.getElementById("pagination");
-  pagination.innerHTML = "";
-
-  const pageCount = Math.ceil(nominations.length / nominationsPerPage);
-
-  if (pageCount <= 1) return;
-
-  const prevBtn = document.createElement("button");
-  prevBtn.textContent = "Prev";
-  prevBtn.disabled = currentPage === 1;
-  prevBtn.onclick = () => {
-    currentPage--;
-    displayNominations();
-    setupPagination();
-  };
-  pagination.appendChild(prevBtn);
-
-  for (let i = 1; i <= pageCount; i++) {
-    const btn = document.createElement("button");
-    btn.textContent = i;
-    btn.className = currentPage === i ? "active" : "";
-    btn.onclick = () => {
-      currentPage = i;
+    const prev = document.createElement('button');
+    prev.textContent = '« Prev';
+    prev.disabled = currentPage === 1;
+    prev.onclick = () => {
+      currentPage--;
       displayNominations();
-      setupPagination();
     };
-    pagination.appendChild(btn);
+    pagination.appendChild(prev);
+
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      if (i === currentPage) btn.classList.add('active');
+      btn.onclick = () => {
+        currentPage = i;
+        displayNominations();
+      };
+      pagination.appendChild(btn);
+    }
+
+    const next = document.createElement('button');
+    next.textContent = 'Next »';
+    next.disabled = currentPage === totalPages;
+    next.onclick = () => {
+      currentPage++;
+      displayNominations();
+    };
+    pagination.appendChild(next);
   }
 
-  const nextBtn = document.createElement("button");
-  nextBtn.textContent = "Next";
-  nextBtn.disabled = currentPage === pageCount;
-  nextBtn.onclick = () => {
-    currentPage++;
-    displayNominations();
-    setupPagination();
-  };
-  pagination.appendChild(nextBtn);
-}
-
-displayNominations();
-setupPagination();
+  displayNominations();
+});
