@@ -4,35 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nomination Archive | Everyday Heroes Network</title>
-  <link rel="stylesheet" href="nomination-archive.css"/>
+  <link rel="stylesheet" href="nomination-archive.css">
 </head>
 <body>
-  <header>
-    <div class="nav-bar">
-      <div class="logo">EHN</div>
-      <nav>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">EHN</h1>
+      <nav class="nav">
         <a href="index.html">Home</a>
         <a href="hero-videos.html">Hero Videos</a>
-        <a href="nominate.html">Nominations</a>
+        <a href="hero-spotlight.html">Nominations</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="archive-intro">
-      <h1>Nomination Archive</h1>
+  <main class="main-content">
+    <section class="intro">
+      <h2>Nomination Archive</h2>
       <p>Here are some of the inspiring nominations we've received. These entries are under review and may be featured soon.</p>
     </section>
 
-    <section id="nomination-cards" class="nomination-grid">
-      <!-- JavaScript will insert cards here -->
+    <section id="nominees-container" class="nominees-container">
+      <!-- Nominees will be inserted here by JS -->
     </section>
 
-    <div id="pagination" class="pagination"></div>
+    <div class="pagination" id="pagination"></div>
   </main>
 
-  <footer>
-    <p>© 2025 Everyday Heroes Network. All rights reserved.</p>
+  <footer class="footer">
+    <p>&copy; 2025 Everyday Heroes Network. All rights reserved.</p>
   </footer>
 
   <script src="nomination-archive.js"></script>
