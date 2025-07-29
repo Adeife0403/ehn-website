@@ -1,82 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hero Videos | Everyday Heroes Network</title>
-  <link rel="stylesheet" href="hero-videos.css">
+  <link rel="stylesheet" href="hero-videos.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="hero-spotlight.css">
 </head>
 <body>
 
 <!-- Unified Hero Section -->
 <header style="background-color: #14532d; color: white; padding: 40px 20px; text-align: center;">
-  <nav class="hero-nav" style="margin-bottom: 20px;">
+  <h1 style="margin-bottom: 10px;">Hero Video Highlights</h1>
+  <p style="font-size: 1.1em; max-width: 700px; margin: 0 auto 30px;">
+    Watch inspiring stories of Everyday Heroes making a difference in our communities.
+  </p>
+  <!-- Navigation Bar -->
+  <nav class="hero-nav" style="margin-top: 20px;">
     <a href="index.html">Home</a>
     <a href="hero-videos.html" class="active">Hero Videos</a>
     <a href="nomination-archive.html">Nominations</a>
-    <h1 style="margin-bottom: 10px;">Hero Video Highlights</h1>
-  <p style="font-size: 1.1em; max-width: 700px; margin: auto;">
-    Watch inspiring stories of Everyday Heroes making a difference in our communities.
-  </p>
   </nav>
 </header>
 
-  <!-- Swiper container -->
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <!-- Slide 1 -->
-      <div class="swiper-slide video-card">
-        <div class="video-thumbnail">
-          <iframe 
-            src="https://www.youtube.com/embed/k2WcOe01zwU" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen></iframe>
-        </div>
-        <h3>Ajun’s Education Mission</h3>
-        <p>Ajun helps rural children access mobile education. His story is powerful.</p>
+<!-- Swiper container -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <!-- Slide 1 -->
+    <div class="swiper-slide video-card">
+      <div class="video-thumbnail">
+        <iframe 
+          src="https://www.youtube.com/embed/k2WcOe01zwU" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen></iframe>
       </div>
-
-      <!-- Slide 2 -->
-      <div class="swiper-slide video-card">
-        <div class="video-thumbnail">
-          <iframe 
-            src="https://www.youtube.com/embed/Z9AYPxH5NTM" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen></iframe>
-        </div>
-        <h3>Aisha’s Clean-Up Drive</h3>
-        <p>Aisha leads monthly environmental efforts and youth programs.</p>
-      </div>
-
-      <!-- Add more slides as needed -->
+      <h3>Ajun’s Education Mission</h3>
+      <p>Ajun helps rural children access mobile education. His story is powerful.</p>
     </div>
 
-    <!-- Swiper Arrows -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+    <!-- Slide 2 -->
+    <div class="swiper-slide video-card">
+      <div class="video-thumbnail">
+        <iframe 
+          src="https://www.youtube.com/embed/Z9AYPxH5NTM" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen></iframe>
+      </div>
+      <h3>Aisha’s Clean-Up Drive</h3>
+      <p>Aisha leads monthly environmental efforts and youth programs.</p>
+    </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script>
-    const swiper = new Swiper('.mySwiper', {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: 2
-        }
+  <!-- Swiper Arrows -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+
+<!-- Swiper Script -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.mySwiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2
       }
-    });
-  </script>
+    }
+  });
+</script>
 
 </body>
 </html>
