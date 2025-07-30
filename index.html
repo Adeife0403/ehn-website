@@ -35,30 +35,37 @@
     margin-bottom: 0.5rem;
   }
 
-    .theme-btn {
-  background: none;
-  border: none;
-  font-size: 1.2em;
-  margin-left: auto;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-.theme-btn:hover {
-  transform: scale(1.1);
-}
-    body.dark-theme {
-  background-color: #111;
+   /* Dark mode styles */
+body.dark-mode {
+  background-color: #121212;
   color: #f1f1f1;
 }
 
-body.dark-theme header,
-body.dark-theme nav,
-body.dark-theme footer {
-  background-color: #222;
+body.dark-mode nav {
+  background-color: #1f1f1f;
 }
 
-body.dark-theme a {
-  color: #80cbc4;
+body.dark-mode .yellow-section {
+  background: #333333;
+  color: #ffffff;
+}
+
+body.dark-mode .hero-card,
+body.dark-mode .testimonials,
+body.dark-mode .how-you-can-help {
+  background-color: #1c1c1c;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark-mode a,
+body.dark-mode .hero-name {
+  color: #90caf9;
+}
+
+body.dark-mode footer {
+  background-color: #222;
+  color: #ccc;
 }
   .hero-card h3 {
     margin: 0.2rem 0;
