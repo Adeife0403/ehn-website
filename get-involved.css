@@ -11,6 +11,23 @@ body {
   padding: 50px 20px;
   text-align: center;
 }
+.floating-nominate-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #facc15;
+  color: #111827;
+  padding: 12px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+.floating-nominate-btn:hover {
+  transform: scale(1.05);
+}
 
 .header h1 {
   font-size: 2.5em;
