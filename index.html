@@ -7,6 +7,8 @@
   <style>
   .hero-card{background:#fff;padding:1rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1);text-align:center;width:200px;transition:transform .3s}.hero-card:hover{transform:translateY(-5px)}.hero-card img{width:100px;height:100px;object-fit:cover;border-radius:50%;margin-bottom:.5rem}body.dark-mode{background-color:#121212;color:#f1f1f1}body.dark-mode nav{background-color:#1f1f1f}body.dark-mode .yellow-section{background:#333;color:#fff}body.dark-mode .hero-card,body.dark-mode .how-you-can-help,body.dark-mode .testimonials{background-color:#1c1c1c;color:#e0e0e0;border-color:#444}body.dark-mode .hero-name,body.dark-mode a{color:#90caf9}body.dark-mode footer{background-color:#222;color:#ccc}#theme-toggle{background-color:#fff;color:#1d3557;border:none;border-radius:50%;padding:8px 10px;cursor:pointer;font-size:18px;margin-left:15px;box-shadow:0 2px 6px rgba(0,0,0,.15);transition:.3s}#theme-toggle:hover{background-color:#f0f0f0;color:#000;transform:scale(1.1)}.hero-title{font-weight:700;color:#00695c;font-size:.95rem}.hero-quote{font-style:italic;color:#666;font-size:.85rem;margin-top:.5rem}
 
+   /* existing styles here */
+
   @media screen and (max-width: 768px) {
     .nav-links {
       flex-direction: column;
@@ -21,6 +23,13 @@
 
     .carousel-container {
       padding: 1rem;
+    }
+
+    .carousel-slide img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
 
     .testimonials, .call-to-action {
