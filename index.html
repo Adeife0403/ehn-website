@@ -352,41 +352,47 @@
   <section class="hero-carousel">
   <h2>Monthly Hero Spotlights</h2>
 <div class="carousel-container">
-  <div class="carousel">
-    <div class="carousel-slide active">
-      <img src="images/hero1.jpg" alt="Hero 1">
-      <h3>Kunle Ade</h3>
-      <p>Started a recycling initiative and collected over 2 tons of waste in 3 months.</p>
-    </div>
-    <div class="carousel-slide">
-      <img src="images/hero2.jpg" alt="Hero 2">
-      <h3>Grace Eze</h3>
-      <p>Runs a free community tutoring center for underserved kids.</p>
-    </div>
-    <div class="carousel-slide">
-      <img src="images/hero3.jpg" alt="Hero 3">
-      <h3>Yakubu Musa</h3>
-      <p>Drives rural health outreach in remote villages every weekend.</p>
-    </div>
-  </div>
+  <div class="carousel" id="carousel"></div>
   <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
   <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
 </div>
 </section>
 
 <script>
-  fetch('heroes.json')
+  let currentSlide = 0;
+  let slides = [];
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  function moveSlide(direction) {
+    currentSlide = (currentSlide + direction + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  // Auto-slide
+  setInterval(() => moveSlide(1), 5000);
+
+  // Load heroes from JSON
+  fetch('carousel-heroes.json')
     .then(response => response.json())
     .then(data => {
-      const container = document.getElementById('hero-carousel-container');
-      container.innerHTML = data.map(hero => `
-        <div class="hero-card">
+      const carousel = document.getElementById('carousel');
+      data.forEach((hero, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'carousel-slide' + (index === 0 ? ' active' : '');
+        slide.innerHTML = `
           <img src="${hero.image}" alt="${hero.name}">
           <h3>${hero.name}</h3>
-          <p class="hero-title">${hero.title}</p>
-          <blockquote class="hero-quote">"${hero.quote}"</blockquote>
-        </div>
-      `).join('');
+          <p>${hero.description}</p>
+        `;
+        carousel.appendChild(slide);
+      });
+
+      slides = document.querySelectorAll('.carousel-slide');
     });
 </script>
   <section class="mission-vision">
@@ -425,23 +431,5 @@
     <p><strong>Contact:</strong> everydayheroes@ehn.org | +234 800 000 0000</p>
   </footer>
   <a href="nominate.html" class="floating-button">Nominate a Hero</a>
-  <script>
-  let currentSlide = 0;
-  const slides = document.querySelectorAll('.carousel-slide');
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-  }
-
-  function moveSlide(direction) {
-    currentSlide = (currentSlide + direction + slides.length) % slides.length;
-    showSlide(currentSlide);
-  }
-
-  // Auto-slide every 5 seconds (optional)
-  setInterval(() => moveSlide(1), 5000);
-</script>
 </body>
 </html>
