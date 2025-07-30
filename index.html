@@ -4,136 +4,255 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Everyday Heroes Network</title>
-
-  <!-- Swiper CSS for carousel -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
   <style>
-    /* Hero Carousel Styling */
-    .hero-carousel {
-      padding: 40px 20px;
-      background: #f9f9f9;
+  .carousel-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-card {
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease;
+  }
+
+  .hero-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .hero-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-card h3 {
+    margin: 0.2rem 0;
+    font-size: 1.1rem;
+    color: #222;
+  }
+
+  .hero-title {
+    font-weight: bold;
+    color: #00695c;
+    font-size: 0.95rem;
+  }
+
+  .hero-quote {
+    font-style: italic;
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+</style>
+  <style>
+    * {
+      box-sizing: border-box;
     }
 
-    .hero-carousel h2 {
-      text-align: center;
-      color: #14532d;
-      font-size: 1.8em;
-      margin-bottom: 30px;
-    }
-
-    .swiper {
-      padding-bottom: 50px;
-    }
-
-    .swiper-slide {
-      background: #fff;
-      border-radius: 12px;
-      text-align: center;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      width: 250px;
-      transition: transform 0.3s ease;
-    }
-
-    .swiper-slide:hover {
-      transform: scale(1.03);
-    }
-
-    .swiper-slide img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
-
-    .hero-title {
-      font-weight: bold;
-      color: #00695c;
-      font-size: 0.95rem;
-    }
-
-    .hero-quote {
-      font-style: italic;
-      color: #666;
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
-    }
-
-    /* Navigation and Page Styling */
     body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      font-family: Arial, sans-serif;
+      padding: 0;
+      line-height: 1.6;
     }
 
     header {
-      background-color: #1a1a1a;
-      padding: 1rem;
+      background: linear-gradient(to right, #001f4d, #003580);
       color: white;
+      padding: 30px 15px;
       text-align: center;
     }
 
     nav {
-      background-color: #2b2b2b;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 0.5rem 0;
+      background-color: #1e5dd2;
+      text-align: center;
     }
 
     nav a {
       color: white;
-      margin: 0 1rem;
       text-decoration: none;
+      margin: 0 15px;
       font-weight: bold;
-    }
-
-    .tagline {
-      background-color: #facc15;
-      color: black;
-      text-align: center;
+      display: inline-block;
       padding: 10px;
+    }
+
+    nav a:hover {
+      background: #003580;
+      border-radius: 5px;
+    }
+
+    .hero {
+      background-color: #ffc107;
+      color: #000;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 28px;
       font-weight: bold;
     }
 
+    .hero a.button {
+      background-color: #e65100;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .hero a.button:hover {
+      transform: scale(1.05);
+    }
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #facc15;
+  color: #000;
+  padding: 12px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  text-decoration: none;
+  z-index: 1000;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.floating-button:hover {
+  background-color: #eab308;
+  transform: scale(1.05);
+}
+    
     section {
-      padding: 20px;
+      padding: 40px 20px;
+      text-align: center;
     }
 
     .spotlight-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
       justify-content: center;
+      gap: 30px;
     }
 
     .spotlight-card {
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      width: 280px;
-      text-align: center;
+      width: 300px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      background: #fff;
+    }
+
+    .spotlight-card:hover {
+      transform: translateY(-5px);
     }
 
     .spotlight-card img {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
+      height: auto;
+    }
+
+    .spotlight-card h3 {
+      margin: 10px 0 5px;
+    }
+
+    .mission-vision {
+      background-color: #f5f5f5;
+      padding: 40px 20px;
+    }
+   .hero-carousel {
+  padding: 40px 20px;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+.hero-carousel h2 {
+  font-size: 1.8em;
+  margin-bottom: 30px;
+  color: #14532d;
+}
+
+.carousel-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+.hero-card {
+  flex: 0 0 250px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.hero-card:hover {
+  transform: scale(1.03);
+}
+
+.hero-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+    .social-icons img {
+      width: 30px;
+      height: 30px;
+      margin: 0 8px;
+      vertical-align: middle;
+    }
+
+    .testimonial, .help-section {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    .testimonial blockquote {
+      font-style: italic;
+      margin: 20px 0;
     }
 
     footer {
-      background: #1a1a1a;
+      background-color: #002b6c;
       color: white;
-      padding: 1rem;
+      padding: 30px 20px;
       text-align: center;
     }
 
-    .social-icons img {
-      width: 30px;
-      margin: 0 10px;
+    @media (max-width: 768px) {
+      .spotlight-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        display: block;
+        padding: 12px 0;
+      }
     }
   </style>
 </head>
@@ -141,99 +260,100 @@
 
   <header>
     <h1>Everyday Heroes Network</h1>
-    <p>Shining a light on the ordinary people doing extraordinary things</p>
+    <p>Celebrating the Unsung</p>
   </header>
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="nominate.html">Nominate</a>
     <a href="hero-spotlight.html">Hero Spotlight</a>
+    <a href="contact.html">Contact</a>
     <a href="get-involved.html">Get Involved</a>
-    <a href="youtube-heroes.html">Hero Videos</a>
-    <a href="nomination-archive.html">Nomination Archive</a>
   </nav>
 
-  <div class="tagline">Together, we recognize the change-makers among us</div>
+  <div class="hero">
+    <h2>Everyday People. Extraordinary Impact.</h2>
+    <p>Discover, celebrate, and support the unsung heroes in your community.</p>
+    <a href="nominate.html" class="button">Nominate a Hero</a>
+  </div>
 
   <section>
     <h2>What is EHN?</h2>
-    <p>Everyday Heroes Network is a platform celebrating individuals who positively impact their communities in meaningful ways.</p>
+    <p>Everyday Heroes Network (EHN) is a platform that uplifts and recognizes individuals who make silent but significant impacts in their communities. We tell their stories and honor their work.</p>
+    <p>From street sweepers and teachers to volunteers and market women, EHN celebrates the powerful difference made by everyday people.</p>
   </section>
 
   <section>
     <h2>Monthly Hero Spotlights</h2>
     <div class="spotlight-container">
       <div class="spotlight-card">
-        <img src="images/ajiun-min.jpg" alt="Ajiun">
+        <img src="images/ajiun min.jpg" alt="Ajiun - Flood Relief Teacher">
         <h3>Ajiun</h3>
-        <p>Youth Empowerment Advocate</p>
+        <p>Volunteered during the 2022 flood in Delta State, teaching displaced children in a makeshift classroom.</p>
       </div>
       <div class="spotlight-card">
-        <img src="images/garbage.jpg" alt="Clean-up Champion">
-        <h3>Clean-Up Champion</h3>
-        <p>Transforming neighborhoods through volunteer cleanups</p>
+        <img src="images/garbage.jpg" alt="Kunle Ade - Waste Recycler">
+        <h3>Kunle Ade</h3>
+        <p>Started a recycling initiative and collected over 10,000 plastic bottles, inspiring youth in his neighborhood.</p>
       </div>
     </div>
   </section>
-
-  <!-- ✅ NEW INTERACTIVE HERO CAROUSEL -->
   <section class="hero-carousel">
-    <h2>Meet More Everyday Heroes</h2>
-    <div class="swiper">
-      <div class="swiper-wrapper" id="hero-carousel-container">
-        <!-- Dynamic content loads here -->
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+  <h2>Meet More Everyday Heroes</h2>
+  <div class="carousel-container" id="hero-carousel-container">
+    <!-- Cards will be loaded here dynamically -->
+  </div>
+</section>
+
+<script>
+  fetch('heroes.json')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('hero-carousel-container');
+      container.innerHTML = data.map(hero => `
+        <div class="hero-card">
+          <img src="${hero.image}" alt="${hero.name}">
+          <h3>${hero.name}</h3>
+          <p class="hero-title">${hero.title}</p>
+          <blockquote class="hero-quote">"${hero.quote}"</blockquote>
+        </div>
+      `).join('');
+    });
+</script>
+  <section class="mission-vision">
+    <h2>Our Mission & Vision</h2>
+    <p><strong>Mission:</strong> To honor and spotlight everyday individuals who positively impact their communities, often without recognition.</p>
+    <p><strong>Vision:</strong> A world where quiet acts of service are valued, shared, and celebrated.</p>
+  </section>
+
+  <section class="testimonial">
+    <h2>What People Are Saying</h2>
+    <blockquote>“EHN gave my story a voice. I never thought anyone noticed what I did — until now.”<br><strong>– Mama Ibeji, Local Food Vendor</strong></blockquote>
+    <blockquote>“Thanks to EHN, I’ve connected with other volunteers and feel truly appreciated.”<br><strong>– Chinedu, Community Health Worker</strong></blockquote>
+  </section>
+
+  <section class="help-section">
+    <h2>How You Can Help</h2>
+    <p>💛 Spread the word about EHN</p>
+    <p>💛 Nominate a hero from your community</p>
+    <p>💛 Volunteer your time or skills</p>
+    <p>💛 Partner or donate to keep the stories alive</p>
+  </section>
+
+  <section>
+    <h3>Follow Us</h3>
+    <div class="social-icons">
+      <a href="#"><img src="images/instagram.png" alt="Instagram" /></a>
+      <a href="#"><img src="images/facebook.png" alt="Facebook" /></a>
+      <a href="#"><img src="images/youtube.png" alt="YouTube" /></a>
+      <a href="#"><img src="images/tiktok.png" alt="TikTok" /></a>
     </div>
   </section>
 
   <footer>
-    <p>Contact us: everydayheroes@gmail.com | +234-800-HEROES</p>
-    <div class="social-icons">
-      <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
-      <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
-      <a href="#"><img src="images/youtube.png" alt="YouTube"></a>
-      <a href="#"><img src="images/tiktok.png" alt="TikTok"></a>
-    </div>
-    <p>&copy; 2025 Everyday Heroes Network</p>
+    <h3>Our Sponsors</h3>
+    <p>[Sponsor logos or names go here]</p>
+    <p><strong>Contact:</strong> everydayheroes@ehn.org | +234 800 000 0000</p>
   </footer>
-
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script>
-    fetch('heroes.json')
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById('hero-carousel-container');
-        container.innerHTML = data.map(hero => `
-          <div class="swiper-slide">
-            <img src="${hero.image}" alt="${hero.name}" />
-            <h3>${hero.name}</h3>
-            <p class="hero-title">${hero.title}</p>
-            <blockquote class="hero-quote">"${hero.quote}"</blockquote>
-          </div>
-        `).join('');
-
-        new Swiper('.swiper', {
-          slidesPerView: 1,
-          spaceBetween: 20,
-          loop: true,
-          autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
-          breakpoints: {
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 }
-          }
-        });
-      });
-  </script>
-
+  <a href="nominate.html" class="floating-button">Nominate a Hero</a>
 </body>
 </html>
