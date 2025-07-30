@@ -68,7 +68,26 @@
     .hero a.button:hover {
       transform: scale(1.05);
     }
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #facc15;
+  color: #000;
+  padding: 12px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  text-decoration: none;
+  z-index: 1000;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
 
+.floating-button:hover {
+  background-color: #eab308;
+  transform: scale(1.05);
+}
+    
     section {
       padding: 40px 20px;
       text-align: center;
@@ -224,6 +243,6 @@
     <p>[Sponsor logos or names go here]</p>
     <p><strong>Contact:</strong> everydayheroes@ehn.org | +234 800 000 0000</p>
   </footer>
-
+  <a href="nominate.html" class="floating-button">Nominate a Hero</a>
 </body>
 </html>
