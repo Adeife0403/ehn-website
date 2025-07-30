@@ -5,6 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Everyday Heroes Network</title>
   <style>
+  .carousel-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-card {
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease;
+  }
+
+  .hero-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .hero-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-card h3 {
+    margin: 0.2rem 0;
+    font-size: 1.1rem;
+    color: #222;
+  }
+
+  .hero-title {
+    font-weight: bold;
+    color: #00695c;
+    font-size: 0.95rem;
+  }
+
+  .hero-quote {
+    font-style: italic;
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+</style>
+  <style>
     * {
       box-sizing: border-box;
     }
@@ -263,7 +313,8 @@
         <div class="hero-card">
           <img src="${hero.image}" alt="${hero.name}">
           <h3>${hero.name}</h3>
-          <p>${hero.title}</p>
+          <p class="hero-title">${hero.title}</p>
+          <blockquote class="hero-quote">"${hero.quote}"</blockquote>
         </div>
       `).join('');
     });
