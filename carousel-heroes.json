@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Kunle Ade",
+    "image": "images/hero1.jpg",
+    "description": "Started a recycling initiative and collected over 2 tons of waste in 3 months."
+  },
+  {
+    "name": "Grace Eze",
+    "image": "images/hero2.jpg",
+    "description": "Runs a free community tutoring center for underserved kids."
+  },
+  {
+    "name": "Yakubu Musa",
+    "image": "images/hero3.jpg",
+    "description": "Drives rural health outreach in remote villages every weekend."
+  }
+]
