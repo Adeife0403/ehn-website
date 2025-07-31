@@ -44,7 +44,7 @@
       margin-bottom: 1.5rem;
     }
 
-    .thank-you-container a {
+    .thank-you-container a.button {
       display: inline-block;
       text-decoration: none;
       background: #2e7d32;
@@ -53,14 +53,42 @@
       border-radius: 8px;
       font-weight: bold;
       transition: background 0.3s ease;
+      margin-bottom: 1rem;
     }
 
-    .thank-you-container a:hover {
+    .thank-you-container a.button:hover {
       background: #1b5e20;
     }
 
+    .social-share {
+      margin-top: 10px;
+    }
+
+    .social-share span {
+      display: block;
+      margin-bottom: 8px;
+      color: #444;
+      font-weight: bold;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons a img {
+      width: 32px;
+      height: 32px;
+      transition: transform 0.2s ease;
+    }
+
+    .social-icons a:hover img {
+      transform: scale(1.1);
+    }
+
     footer {
-      margin-top: 2rem;
       font-size: 0.85rem;
       color: #666;
     }
@@ -74,9 +102,30 @@
 <body>
   <div class="thank-you-container">
     <h1>Thank You for Your Nomination!</h1>
-    <p>We’ve received your submission and will review it shortly. Your input helps us shine a light on everyday heroes.</p>
-    <a href="index.html">Return to Homepage</a>
+    <p>We’ve received your submission and will review it shortly.<br />
+      Your input helps us shine a light on everyday heroes and inspire others to do good.</p>
+    
+    <a href="index.html" class="button">Return to Homepage</a>
+
+    <div class="social-share">
+      <span>Help spread the word:</span>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://adeife0403.github.io/ehn-website/" target="_blank" title="Share on Facebook">
+          <img src="images/facebook.png" alt="Facebook" />
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=https://adeife0403.github.io/ehn-website/&text=I just nominated an Everyday Hero! Join the movement. #EHN" target="_blank" title="Share on Twitter">
+          <img src="images/twitter.png" alt="Twitter" />
+        </a>
+        <a href="https://api.whatsapp.com/send?text=I just nominated an Everyday Hero! Join the movement: https://adeife0403.github.io/ehn-website/" target="_blank" title="Share on WhatsApp">
+          <img src="images/whatsapp.png" alt="WhatsApp" />
+        </a>
+        <a href="https://www.instagram.com/everydayheroesnetwork" target="_blank" title="Visit Instagram">
+          <img src="images/instagram.png" alt="Instagram" />
+        </a>
+      </div>
+    </div>
   </div>
+
   <footer>
     <p>Read our <a href="privacy.html" target="_blank">Privacy Policy</a></p>
   </footer>
