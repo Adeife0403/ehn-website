@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You – Everyday Heroes Network</title>
+  <link rel="stylesheet" href="style.css" /> <!-- Optional: reuse main styles -->
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0fff4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #222;
+      text-align: center;
+    }
+
+    .thank-you-container {
+      background: #fff;
+      border: 2px solid #4CAF50;
+      border-radius: 12px;
+      padding: 40px 30px;
+      max-width: 500px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .thank-you-container h1 {
+      font-size: 2em;
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+
+    .thank-you-container p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .thank-you-container .actions {
+      margin-top: 25px;
+    }
+
+    .thank-you-container a {
+      display: inline-block;
+      margin: 5px 10px;
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .thank-you-container a:hover {
+      background: #388E3C;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="thank-you-container">
+    <h1>Thank You!</h1>
+    <p>Your nomination has been received. <br>
+      We're grateful for your effort to recognize an everyday hero making a difference. 💛</p>
+    <div class="actions">
+      <a href="index.html">Back to Home</a>
+      <a href="hero-spotlight.html">See Hero Spotlights</a>
+    </div>
+  </div>
+</body>
+</html>
