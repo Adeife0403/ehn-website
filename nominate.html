@@ -74,6 +74,44 @@
     form button:hover {
       background-color: #cc4600;
     }
+   .nominate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nominate-form label {
+  font-weight: bold;
+  margin-top: 10px;
+  color: #333;
+}
+
+.nominate-form input,
+.nominate-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nominate-form button {
+  background-color: #ffd700;
+  color: #000;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.nominate-form button:hover {
+  background-color: #e5c100;
+}
 
     footer {
       background-color: #eee;
@@ -108,24 +146,27 @@
   <div class="container">
     <h2>Nominate a Hero</h2>
     <p style="text-align:center;">Use the form below to nominate someone who deserves recognition for their everyday heroism.</p>
-    <form action="https://formspree.io/f/movlwlla" method="POST">
+    <form action="https://formspree.io/f/movlwlla" method="POST" class="nominate-form" style="max-width: 600px; margin: auto; padding: 2rem; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+  <h2 style="text-align: center; margin-bottom: 1rem;">Nominate a Hero</h2>
+
   <label for="name">Your Name</label>
-  <input type="text" name="name" id="name" required>
+  <input type="text" id="name" name="name" required>
+
+  <label for="hero-name">Hero’s Name</label>
+  <input type="text" id="hero-name" name="hero-name" required>
 
   <label for="email">Your Email</label>
-  <input type="email" name="email" id="email" required>
+  <input type="email" id="email" name="email">
 
-  <label for="whatsapp">WhatsApp Number (Optional)</label>
-  <input type="tel" name="whatsapp" id="whatsapp" placeholder="+234XXXXXXXXXX">
-
-  <label for="heroName">Hero’s Name</label>
-  <input type="text" name="heroName" id="heroName" required>
+  <label for="whatsapp">WhatsApp Number</label>
+  <input type="tel" id="whatsapp" name="whatsapp" placeholder="+234..." required>
 
   <label for="story">Tell us why they are a hero</label>
-<textarea name="story" id="story" rows="6" style="height: 150px;" required></textarea>
+  <textarea name="story" id="story" rows="6" style="height: 150px;" required></textarea>
 
   <button type="submit">Submit Nomination</button>
 </form>
+
 
   </div>
 
