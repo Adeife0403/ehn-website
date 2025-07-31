@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Hero Spotlight | Everyday Heroes Network</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="hero-spotlight.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="hero-spotlight.css">
 </head>
 <body>
-
   <!-- Header -->
   <header>
     <div class="nav-container">
@@ -26,9 +25,9 @@
     </nav>
   </header>
 
-  <!-- Search and Filter -->
-  <section class="filter-bar">
-    <input type="text" id="searchInput" placeholder="Search heroes..." oninput="filterHeroes()" />
+  <!-- Filters (optional) -->
+  <div class="filters">
+    <input type="text" id="searchInput" oninput="filterHeroes()" placeholder="Search heroes...">
     <select id="categoryFilter" onchange="filterHeroes()">
       <option value="">All Categories</option>
       <option value="Community Educator">Community Educator</option>
@@ -40,13 +39,13 @@
       <option value="Women Empowerment Advocate">Women Empowerment Advocate</option>
       <option value="Trick Friend">Trick Friend</option>
     </select>
-  </section>
+  </div>
 
-  <!-- Hero Grid -->
+  <!-- Hero Cards -->
   <main>
-    <div id="heroContainer" class="hero-grid"></div>
+    <div id="heroContainer"></div>
 
-    <!-- Pagination -->
+    <!-- Pagination Controls -->
     <div class="pagination">
       <button onclick="prevPage()">Previous</button>
       <span id="pageNumber">Page 1</span>
@@ -58,7 +57,7 @@
   <div id="heroModal">
     <div id="heroModalContent">
       <span id="closeModalBtn" onclick="closeModal()">&times;</span>
-      <img id="modalImg" src="" alt="Hero Image" />
+      <img id="modalImg" src="" alt="Hero Image">
       <h2 id="modalName"></h2>
       <h4 id="modalTitle"></h4>
       <p id="modalStory"></p>
@@ -68,14 +67,13 @@
   <!-- Floating Button -->
   <a href="nominate.html" class="floating-nominate-btn">Nominate a Hero</a>
 
-  <!-- Scripts -->
+  <!-- JavaScript -->
   <script src="hero-spotlight.js"></script>
   <script>
-    const hamburger = document.getElementById("hamburger");
-    const mobileNav = document.getElementById("mobileNav");
-
-    hamburger.addEventListener("click", () => {
-      mobileNav.classList.toggle("show");
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+      mobileNav.classList.toggle('show');
     });
   </script>
 </body>
