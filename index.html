@@ -477,5 +477,14 @@ body.dark-mode footer {
   <script>
   const toggle=document.getElementById("theme-toggle"),icon=toggle.querySelector("i");toggle.addEventListener("click",()=>{document.body.classList.toggle("dark-mode");let e=document.body.classList.contains("dark-mode");localStorage.setItem("theme",e?"dark":"light"),icon.className=e?"fas fa-sun":"fas fa-moon"}),window.addEventListener("DOMContentLoaded",()=>{let e=localStorage.getItem("theme");"dark"===e?(document.body.classList.add("dark-mode"),icon.className="fas fa-sun"):icon.className="fas fa-moon"});
 </script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QZG5ECK68T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QZG5ECK68T');
+</script>
 </body>
 </html>
