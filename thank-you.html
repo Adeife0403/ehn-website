@@ -76,10 +76,12 @@
     .facebook { background: #3b5998; }
     .twitter  { background: #1da1f2; }
     .whatsapp { background: #25D366; }
+    .instagram { background: #e1306c; }
 
     .facebook:hover { background: #2d4373; }
     .twitter:hover  { background: #0d8ddb; }
     .whatsapp:hover { background: #1ebe5d; }
+    .instagram:hover { background: #c82361; }
 
     .back-home {
       margin-top: 2.5rem;
@@ -113,52 +115,60 @@
 </head>
 <body>
   <div class="thank-you-container">
-    <h1>Thank You for Your Nomination!</h1>
+    <h1>🎉 Thank You for Your Nomination!</h1>
     <p>Your hero’s story has been received and is being reviewed. We're honored to celebrate everyday heroes like yours.</p>
     
     <div class="share-section">
       <p>Help us reach more people by sharing this with your community:</p>
       <div class="share-buttons">
-        <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://adeife0403.github.io/ehn-website/" target="_blank" aria-label="Share on Facebook">📘 Facebook</a>
-        <a class="twitter" href="https://twitter.com/intent/tweet?text=I%20just%20nominated%20a%20hero!%20Celebrate%20with%20us%20at%20Everyday%20Heroes%20Network&url=https://adeife0403.github.io/ehn-website/" target="_blank" aria-label="Share on Twitter">🐦 Twitter/X</a>
-        <a class="whatsapp" href="https://wa.me/?text=I%20just%20nominated%20a%20hero%20on%20Everyday%20Heroes%20Network!%20See%20more%20here:%20https://adeife0403.github.io/ehn-website/" target="_blank" aria-label="Share on WhatsApp">📱 WhatsApp</a>
+        <!-- Facebook -->
+        <a class="facebook" href="fb://facewebmodal/f?href=https://www.facebook.com/sharer/sharer.php?u=https://adeife0403.github.io/ehn-website/" target="_blank" aria-label="Share on Facebook">📘 Facebook</a>
+
+        <!-- Twitter/X -->
+        <a class="twitter" href="twitter://post?message=I just nominated a hero! Celebrate with us at Everyday Heroes Network https://adeife0403.github.io/ehn-website/" target="_blank" aria-label="Share on Twitter">🐦 Twitter/X</a>
+
+        <!-- WhatsApp -->
+        <a class="whatsapp" href="whatsapp://send?text=I just nominated a hero on Everyday Heroes Network! See more here: https://adeife0403.github.io/ehn-website/" target="_blank" aria-label="Share on WhatsApp">📱 WhatsApp</a>
+
+        <!-- Instagram -->
+        <a class="instagram" href="https://www.instagram.com/" target="_blank" aria-label="Open Instagram">📸 Instagram</a>
       </div>
     </div>
 
     <a class="back-home" href="index.html">← Back to Home</a>
   </div>
-  <!-- Confetti Effect -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<script>
-  // Simple burst on load
-  window.onload = () => {
-    const duration = 2 * 1000;
-    const animationEnd = Date.now() + duration;
 
+  <!-- Confetti Effect -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const duration = 3 * 1000;
+    const animationEnd = Date.now() + duration;
     const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 1000 };
 
     function randomInRange(min, max) {
       return Math.random() * (max - min) + min;
     }
 
-    const interval = setInterval(function () {
+    const interval = setInterval(function() {
       const timeLeft = animationEnd - Date.now();
 
       if (timeLeft <= 0) {
         return clearInterval(interval);
       }
 
-      confetti({
-        ...defaults,
-        particleCount: 50,
-        origin: {
-          x: randomInRange(0.1, 0.9),
-          y: Math.random() - 0.2
-        }
-      });
+      const particleCount = 50 * (timeLeft / duration);
+      
+      // Left
+      confetti(Object.assign({}, defaults, {
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+      }));
+      // Right
+      confetti(Object.assign({}, defaults, {
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+      }));
     }, 250);
-  };
-</script>
-
+  </script>
 </body>
 </html>
