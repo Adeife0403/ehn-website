@@ -26,11 +26,27 @@
     </nav>
   </header>
 
-  <!-- Hero Cards -->
+  <!-- Search and Filter -->
+  <section class="filter-bar">
+    <input type="text" id="searchInput" placeholder="Search heroes..." oninput="filterHeroes()" />
+    <select id="categoryFilter" onchange="filterHeroes()">
+      <option value="">All Categories</option>
+      <option value="Community Educator">Community Educator</option>
+      <option value="Volunteer First Responder">Volunteer First Responder</option>
+      <option value="Youth Mentor">Youth Mentor</option>
+      <option value="Environmental Advocate">Environmental Advocate</option>
+      <option value="Neighborhood Guardian">Neighborhood Guardian</option>
+      <option value="Healthcare Volunteer">Healthcare Volunteer</option>
+      <option value="Women Empowerment Advocate">Women Empowerment Advocate</option>
+      <option value="Trick Friend">Trick Friend</option>
+    </select>
+  </section>
+
+  <!-- Hero Grid -->
   <main>
     <div id="heroContainer" class="hero-grid"></div>
 
-    <!-- Pagination Controls -->
+    <!-- Pagination -->
     <div class="pagination">
       <button onclick="prevPage()">Previous</button>
       <span id="pageNumber">Page 1</span>
