@@ -9,31 +9,22 @@
 <body>
 
     <!-- Header -->
-    <header style="background-color: #14532d; color: white; padding: 20px;">
-        <h1 style="margin: 0;">Hero Spotlight</h1>
-        <nav class="hero-nav">
-  <a href="index.html">Home</a>
-  <a href="hero-videos.html">Hero Videos</a>
-  <a href="nomination-archive.html">Nominations</a>
-</nav>
-
-        <!-- Search and Category Filter -->
-        <div style="margin-top: 15px;">
-            <input type="text" id="searchInput" placeholder="Search heroes..." oninput="filterHeroes()" style="padding: 8px; width: 200px; max-width: 90%;">
-            <select id="categoryFilter" onchange="filterHeroes()" style="padding: 8px; margin-left: 10px;">
-                <option value="">All Categories</option>
-                <option value="Community Educator">Community Educator</option>
-                <option value="Volunteer First Responder">Volunteer First Responder</option>
-                <option value="Youth Mentor">Youth Mentor</option>
-                <option value="Environmental Advocate">Environmental Advocate</option>
-                <option value="Neighborhood Guardian">Neighborhood Guardian</option>
-                <option value="Healthcare Volunteer">Healthcare Volunteer</option>
-                <option value="Women Empowerment Advocate">Women Empowerment Advocate</option>
-                <option value="Trick Friend">Trick Friend</option>
-            </select>
-        </div>
-    </header>
-
+    <header>
+  <div class="nav-container">
+    <h1>Hero Spotlight</h1>
+    <nav class="nav-desktop">
+      <a href="index.html">Home</a>
+      <a href="hero-videos.html">Hero Videos</a>
+      <a href="nomination-archive.html">Nomination Archive</a>
+    </nav>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+  </div>
+  <nav class="nav-mobile" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="hero-videos.html">Hero Videos</a>
+    <a href="nomination-archive.html">Nomination Archive</a>
+  </nav>
+</header>
     <!-- Hero Cards -->
     <main>
         <div id="heroContainer"></div>
@@ -59,5 +50,13 @@
     <a href="nominate.html" class="floating-nominate-btn">Nominate a Hero</a>
     <!-- JavaScript -->
     <script src="spotlight.js"></script>
+    <script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('show');
+  });
+</script>
 </body>
 </html>
