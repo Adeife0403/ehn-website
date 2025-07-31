@@ -1,62 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Hero Spotlight | Everyday Heroes Network</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="hero-spotlight.css">
+  <meta charset="UTF-8" />
+  <title>Hero Spotlight | Everyday Heroes Network</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="hero-spotlight.css" />
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-  <div class="nav-container">
-    <h1>Hero Spotlight</h1>
-    <nav class="nav-desktop">
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <h1>Hero Spotlight</h1>
+      <nav class="nav-desktop">
+        <a href="index.html">Home</a>
+        <a href="hero-videos.html">Hero Videos</a>
+        <a href="nomination-archive.html">Nomination Archive</a>
+      </nav>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </div>
+    <nav class="nav-mobile" id="mobileNav">
       <a href="index.html">Home</a>
       <a href="hero-videos.html">Hero Videos</a>
       <a href="nomination-archive.html">Nomination Archive</a>
     </nav>
-    <div class="hamburger" id="hamburger">&#9776;</div>
-  </div>
-  <nav class="nav-mobile" id="mobileNav">
-    <a href="index.html">Home</a>
-    <a href="hero-videos.html">Hero Videos</a>
-    <a href="nomination-archive.html">Nomination Archive</a>
-  </nav>
-</header>
-    <!-- Hero Cards -->
-    <main>
-        <div id="heroContainer"></div>
+  </header>
 
-        <!-- Pagination Controls -->
-        <div class="pagination">
-            <button onclick="prevPage()">Previous</button>
-            <span id="pageNumber">Page 1</span>
-            <button onclick="nextPage()">Next</button>
-        </div>
-    </main>
+  <!-- Hero Cards -->
+  <main>
+    <div id="heroContainer" class="hero-grid"></div>
 
-    <!-- Hero Modal -->
-    <div id="heroModal">
-        <div id="heroModalContent">
-            <span id="closeModalBtn" onclick="closeModal()">&times;</span>
-            <img id="modalImg" src="" alt="Hero Image">
-            <h2 id="modalName"></h2>
-            <h4 id="modalTitle"></h4>
-            <p id="modalStory"></p>
-        </div>
+    <!-- Pagination Controls -->
+    <div class="pagination">
+      <button onclick="prevPage()">Previous</button>
+      <span id="pageNumber">Page 1</span>
+      <button onclick="nextPage()">Next</button>
     </div>
-    <a href="nominate.html" class="floating-nominate-btn">Nominate a Hero</a>
-    <!-- JavaScript -->
-    <script src="spotlight.js"></script>
-    <script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobileNav');
+  </main>
 
-  hamburger.addEventListener('click', () => {
-    mobileNav.classList.toggle('show');
-  });
-</script>
+  <!-- Hero Modal -->
+  <div id="heroModal">
+    <div id="heroModalContent">
+      <span id="closeModalBtn" onclick="closeModal()">&times;</span>
+      <img id="modalImg" src="" alt="Hero Image" />
+      <h2 id="modalName"></h2>
+      <h4 id="modalTitle"></h4>
+      <p id="modalStory"></p>
+    </div>
+  </div>
+
+  <!-- Floating Button -->
+  <a href="nominate.html" class="floating-nominate-btn">Nominate a Hero</a>
+
+  <!-- Scripts -->
+  <script src="hero-spotlight.js"></script>
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const mobileNav = document.getElementById("mobileNav");
+
+    hamburger.addEventListener("click", () => {
+      mobileNav.classList.toggle("show");
+    });
+  </script>
 </body>
 </html>
