@@ -111,7 +111,35 @@ body.dark-mode footer {
     font-size: 1.1rem;
     color: #222;
   }
-
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #222;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+}
+.cookie-banner a {
+  color: #ffd700;
+  text-decoration: underline;
+}
+.cookie-banner button {
+  background: #ffd700;
+  border: none;
+  color: #222;
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cookie-banner.hide {
+  display: none;
+}
+    
   .hero-title {
     font-weight: bold;
     color: #00695c;
@@ -483,8 +511,28 @@ body.dark-mode footer {
     <p><strong>Contact:</strong> everydayheroes@ehn.org | +234 800 000 0000</p>
   </footer>
   <a href="nominate.html" class="floating-button">Nominate a Hero</a>
+  <div id="cookie-banner" class="cookie-banner">
+  <p>This site uses cookies for analytics and to enhance your experience. By continuing to browse, you agree to our use of cookies. 
+    <a href="privacy.html" target="_blank">Learn more</a>.
+  </p>
+  <button id="accept-cookies">Accept</button>
+</div>
   <script>
   const toggle=document.getElementById("theme-toggle"),icon=toggle.querySelector("i");toggle.addEventListener("click",()=>{document.body.classList.toggle("dark-mode");let e=document.body.classList.contains("dark-mode");localStorage.setItem("theme",e?"dark":"light"),icon.className=e?"fas fa-sun":"fas fa-moon"}),window.addEventListener("DOMContentLoaded",()=>{let e=localStorage.getItem("theme");"dark"===e?(document.body.classList.add("dark-mode"),icon.className="fas fa-sun"):icon.className="fas fa-moon"});
 </script>
+<script>
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('accept-cookies');
+
+  if (!localStorage.getItem('cookiesAccepted')) {
+    banner.classList.remove('hide');
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    localStorage.setItem('cookiesAccepted', 'true');
+    banner.classList.add('hide');
+  });
+</script>
+
 </body>
 </html>
