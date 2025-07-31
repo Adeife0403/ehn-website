@@ -242,3 +242,63 @@ header nav a {
         padding: 20px;
     }
 }
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-desktop {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.nav-mobile {
+  display: none;
+  flex-direction: column;
+  background-color: #2e7d32;
+  padding: 10px 0;
+  animation: fadeInDown 0.3s ease;
+}
+
+.nav-mobile a {
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-mobile a:hover {
+  background-color: #2e8b57;
+}
+
+/* Show hamburger on small screens */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .nav-mobile.show {
+    display: flex;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
