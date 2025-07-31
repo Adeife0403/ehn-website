@@ -2,132 +2,117 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Thank You - Everyday Heroes Network</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #fefcea, #f1da36);
+      background: #f3f4f6;
+      color: #333;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      height: 100vh;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
       text-align: center;
-      padding: 1rem;
     }
 
     .thank-you-container {
       background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      max-width: 500px;
-      animation: popIn 0.7s ease forwards;
+      max-width: 600px;
+      width: 100%;
+      animation: fadeIn 0.8s ease-in-out;
     }
 
-    @keyframes popIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .thank-you-container h1 {
-      color: #2e2e2e;
-      font-size: 2rem;
+    h1 {
+      color: #1a202c;
       margin-bottom: 1rem;
     }
 
-    .thank-you-container p {
-      font-size: 1rem;
-      color: #444;
+    p {
+      font-size: 1.1rem;
       margin-bottom: 1.5rem;
     }
 
-    .thank-you-container a.button {
-      display: inline-block;
-      text-decoration: none;
-      background: #2e7d32;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s ease;
-      margin-bottom: 1rem;
+    .share-section {
+      margin-top: 2rem;
     }
 
-    .thank-you-container a.button:hover {
-      background: #1b5e20;
-    }
-
-    .social-share {
-      margin-top: 10px;
-    }
-
-    .social-share span {
-      display: block;
-      margin-bottom: 8px;
-      color: #444;
-      font-weight: bold;
-    }
-
-    .social-icons {
+    .share-buttons {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin-bottom: 1rem;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
-    .social-icons a img {
-      width: 32px;
-      height: 32px;
-      transition: transform 0.2s ease;
+    .share-buttons a {
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: bold;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.3s ease;
     }
 
-    .social-icons a:hover img {
-      transform: scale(1.1);
+    .facebook { background: #3b5998; }
+    .twitter  { background: #1da1f2; }
+    .whatsapp { background: #25D366; }
+
+    .facebook:hover { background: #2d4373; }
+    .twitter:hover  { background: #0d8ddb; }
+    .whatsapp:hover { background: #1ebe5d; }
+
+    .back-home {
+      margin-top: 2rem;
+      display: inline-block;
+      background: #ffd700;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
     }
 
-    footer {
-      font-size: 0.85rem;
-      color: #666;
+    .back-home:hover {
+      background: #e5c100;
     }
 
-    footer a {
-      color: #2e7d32;
-      text-decoration: underline;
+    @media (max-width: 480px) {
+      .share-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
   <div class="thank-you-container">
     <h1>Thank You for Your Nomination!</h1>
-    <p>We’ve received your submission and will review it shortly.<br />
-      Your input helps us shine a light on everyday heroes and inspire others to do good.</p>
+    <p>Your hero’s story has been received and is being reviewed. We're inspired by your contribution and honored to celebrate everyday heroes like yours.</p>
     
-    <a href="index.html" class="button">Return to Homepage</a>
-
-    <div class="social-share">
-      <span>Help spread the word:</span>
-      <div class="social-icons">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://adeife0403.github.io/ehn-website/" target="_blank" title="Share on Facebook">
-          <img src="images/facebook.png" alt="Facebook" />
-        </a>
-        <a href="https://twitter.com/intent/tweet?url=https://adeife0403.github.io/ehn-website/&text=I just nominated an Everyday Hero! Join the movement. #EHN" target="_blank" title="Share on Twitter">
-          <img src="images/twitter.png" alt="Twitter" />
-        </a>
-        <a href="https://api.whatsapp.com/send?text=I just nominated an Everyday Hero! Join the movement: https://adeife0403.github.io/ehn-website/" target="_blank" title="Share on WhatsApp">
-          <img src="images/whatsapp.png" alt="WhatsApp" />
-        </a>
-        <a href="https://www.instagram.com/everydayheroesnetwork" target="_blank" title="Visit Instagram">
-          <img src="images/instagram.png" alt="Instagram" />
-        </a>
+    <div class="share-section">
+      <p>Help us celebrate more heroes by sharing this with others:</p>
+      <div class="share-buttons">
+        <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://adeife0403.github.io/ehn-website/" target="_blank">📘 Facebook</a>
+        <a class="twitter" href="https://twitter.com/intent/tweet?text=I%20just%20nominated%20a%20hero!%20Celebrate%20with%20us%20at%20Everyday%20Heroes%20Network&url=https://adeife0403.github.io/ehn-website/" target="_blank">🐦 X / Twitter</a>
+        <a class="whatsapp" href="https://wa.me/?text=I%20just%20nominated%20a%20hero%20on%20Everyday%20Heroes%20Network!%20See%20more%20here:%20https://adeife0403.github.io/ehn-website/" target="_blank">📱 WhatsApp</a>
       </div>
     </div>
-  </div>
 
-  <footer>
-    <p>Read our <a href="privacy.html" target="_blank">Privacy Policy</a></p>
-  </footer>
+    <a class="back-home" href="index.html">← Back to Home</a>
+  </div>
 </body>
 </html>
