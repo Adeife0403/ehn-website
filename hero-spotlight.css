@@ -11,13 +11,6 @@ header {
     text-align: center;
 }
 
-header nav a {
-    color: white;
-    margin-right: 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
 .filters {
     margin-top: 15px;
 }
@@ -72,35 +65,6 @@ header nav a {
     justify-content: center;
     margin: 20px;
     gap: 10px;
-}
-.hero-nav {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 1rem;
-}
-
-.hero-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.hero-nav a:hover {
-  background-color: #2e8b57; /* soft green hover */
-  color: white;
-  text-decoration: underline;
-}
-
-/* Highlight current/active page */
-.hero-nav a.active {
-  background-color: white;
-  color: #2e8b57;
-  border: 2px solid #2e8b57;
 }
 
 .pagination button {
