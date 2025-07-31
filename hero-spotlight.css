@@ -206,16 +206,30 @@ header {
         padding: 20px;
     }
 }
+.nav-desktop a {
+  color: #fff; /* Make text white */
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-desktop a:hover {
+  color: #ffcc00; /* Highlight on hover */
+}
+
 .nav-container {
+  background-color: #004d40; /* Deep green background */
+  padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .nav-desktop {
   display: flex;
-  gap: 1.2rem;
+  align-items: center;
 }
 
 .hamburger {
