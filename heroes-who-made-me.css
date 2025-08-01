@@ -80,25 +80,30 @@ body {
 .story-footer {
   text-align: center;
   padding: 2rem 1rem;
-  margin-top: 2rem;
   background-color: #f9fafb;
+  margin-top: 2rem;
+  border-top: 1px solid #e0e0e0;
 }
 
 .story-footer .back-link {
   display: inline-block;
   background-color: #2e7d32;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
+  color: #fff;
+  padding: 12px 30px;
+  margin-top: 1rem;
+  border-radius: 40px;
   font-size: 1rem;
-  transition: background 0.3s ease;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .story-footer .back-link:hover {
   background-color: #256429;
+  transform: translateY(-2px);
 }
+
 
 .back-home {
   display: inline-block;
