@@ -414,6 +414,52 @@ body {
 .carousel-btn.next {
   right: 10px;
 }
+    .who-made-me {
+  background: #fef3c7;
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 3px solid #facc15;
+  border-bottom: 3px solid #facc15;
+}
+
+.who-made-me h2 {
+  font-size: 2rem;
+  color: #92400e;
+  margin-bottom: 1rem;
+}
+
+.who-made-me p {
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  color: #5b3412;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.who-made-me .btn-read {
+  display: inline-block;
+  background: #facc15;
+  color: #000;
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.who-made-me .btn-read:hover {
+  background: #eab308;
+}
+
+@media (max-width: 600px) {
+  .who-made-me h2 {
+    font-size: 1.5rem;
+  }
+  .who-made-me p {
+    font-size: 1rem;
+  }
+}
+
   </style>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -439,6 +485,7 @@ body {
     <a href="hero-spotlight.html">Hero Spotlight</a>
     <a href="contact.html">Contact</a>
     <a href="get-involved.html">Get Involved</a>
+    <a href="heroes-who-made-me.html">Heroes Who Made Me</a>
     <button id="theme-toggle"><i class="fas fa-moon"></i></button>
   </nav>
 
@@ -514,7 +561,14 @@ body {
       <a href="#"><img src="images/tiktok.png" alt="TikTok" /></a>
     </div>
   </section>
-
+  <section class="who-made-me">
+  <div class="container">
+    <h2>💛 Heroes Who Made Me</h2>
+    <p>These are heartfelt tributes to the people who shaped our lives — family, mentors, neighbors, silent warriors, and everyday angels.</p>
+    <a href="heroes-who-made-me.html" class="btn-read">Read the Stories</a>
+  </div>
+</section>
+  
   <footer>
     <h3>Our Sponsors</h3>
     <p>[Sponsor logos or names go here]</p>
