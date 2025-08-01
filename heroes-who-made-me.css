@@ -5,26 +5,31 @@ body {
   padding: 0;
   color: #333;
 }
+
 .hero-header {
   text-align: center;
   background: linear-gradient(to right, #f9fafb, #e0f7fa);
   padding: 2rem 1rem 1rem;
 }
+
 .hero-header h1 {
   margin: 0;
   color: #2e7d32;
   font-size: 2rem;
 }
+
 .hero-header .subhead {
   font-style: italic;
   color: #555;
 }
+
 .highlight-quote {
   font-weight: bold;
   font-style: italic;
   margin-top: 1rem;
   color: #c62828;
 }
+
 #toggleMusic {
   margin-top: 1rem;
   padding: 8px 16px;
@@ -34,6 +39,7 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
+
 .story-container {
   display: flex;
   flex-direction: column;
@@ -41,6 +47,7 @@ body {
   gap: 2rem;
   padding: 2rem 1rem;
 }
+
 .hero-story {
   background: white;
   border-radius: 12px;
@@ -51,32 +58,39 @@ body {
   overflow: hidden;
   transition: transform 0.3s ease;
 }
+
 .hero-story:hover {
   transform: scale(1.01);
 }
+
 .hero-img {
   width: 160px;
   height: 160px;
   object-fit: cover;
   border-radius: 12px 0 0 12px;
 }
+
 .hero-text {
   padding: 1rem;
 }
+
 .hero-text h2 {
   margin-top: 0;
   color: #2e7d32;
 }
+
 .read-more {
   text-decoration: none;
   color: #2196f3;
   font-weight: bold;
 }
+
 .hero-footer {
   text-align: center;
   padding: 2rem 1rem;
   background: #f0f0f0;
 }
+
 .story-footer {
   text-align: center;
   padding: 2rem 1rem;
@@ -85,6 +99,7 @@ body {
   border-top: 1px solid #e0e0e0;
 }
 
+/* ✅ Improved Back to Stories Button */
 .story-footer .back-link {
   display: inline-block;
   background-color: #2e7d32;
@@ -97,6 +112,8 @@ body {
   text-decoration: none;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   transition: background 0.3s ease, transform 0.2s ease;
+  position: relative;
+  z-index: 10;
 }
 
 .story-footer .back-link:hover {
@@ -104,7 +121,7 @@ body {
   transform: translateY(-2px);
 }
 
-
+/* Optional Home Button */
 .back-home {
   display: inline-block;
   margin-top: 1rem;
@@ -115,6 +132,8 @@ body {
   border-radius: 30px;
   font-weight: bold;
 }
+
+/* ✅ Responsive Fixes */
 @media (max-width: 768px) {
   .hero-story {
     flex-direction: column;
@@ -124,5 +143,10 @@ body {
     border-radius: 12px 12px 0 0;
     width: 100%;
     height: auto;
+  }
+
+  .story-footer .back-link {
+    padding: 10px 24px;
+    font-size: 0.95rem;
   }
 }
