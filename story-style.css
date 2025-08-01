@@ -1,0 +1,90 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.story-header {
+  background-color: #2e7d32;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.story-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+.story-header .subtext {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.story-content {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.story-image {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-quote {
+  font-style: italic;
+  background: #fff3cd;
+  padding: 1rem;
+  border-left: 4px solid #ffc107;
+  margin: 2rem 0;
+  border-radius: 6px;
+  color: #5a4e00;
+}
+
+.story-body p {
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+}
+
+.back-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.back-button, .home-button {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: #ffd700;
+  color: #000;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.back-button:hover, .home-button:hover {
+  background: #e5c100;
+}
+
+@media (max-width: 600px) {
+  .story-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .story-body p {
+    font-size: 1rem;
+  }
+
+  .highlight-quote {
+    font-size: 0.95rem;
+  }
+}
