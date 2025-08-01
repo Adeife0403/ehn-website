@@ -1,113 +1,107 @@
 body {
-  margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f8f9fa;
+  margin: 0;
+  background: #f9fafb;
   color: #333;
 }
 
 .hero-header {
-  background-color: #2e7d32;
-  color: white;
-  padding: 60px 20px 30px;
   text-align: center;
+  background: linear-gradient(135deg, #e6f2e6, #d4edda);
+  padding: 3rem 1rem 2rem;
+  position: relative;
 }
 
 .hero-header h1 {
   font-size: 2.5rem;
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
 }
 
-.hero-header .subhead {
-  font-size: 1.2rem;
-  font-weight: 300;
-  max-width: 600px;
-  margin: 0 auto;
+.subhead {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.highlight-quote {
+  font-style: italic;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #2e7d32;
+  padding: 0.5rem 1rem;
+}
+
+#musicToggle {
+  margin-top: 1rem;
+  background: #ffd700;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .story-container {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding: 40px 20px;
+  padding: 2rem;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .hero-story {
   display: flex;
   flex-wrap: wrap;
-  background: white;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  background: #fff;
   border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
   overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.hero-story:hover {
+  transform: translateY(-4px);
 }
 
 .hero-img {
   width: 100%;
-  max-width: 320px;
+  max-width: 300px;
   object-fit: cover;
-  height: auto;
-  flex-shrink: 0;
+  flex: 1;
 }
 
 .hero-text {
-  padding: 20px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex: 2;
+  padding: 1.5rem;
 }
 
 .hero-text h2 {
-  color: #2e7d32;
   margin-top: 0;
-  font-size: 1.8rem;
-}
-
-.hero-text p {
-  font-size: 1.05rem;
-  line-height: 1.6;
+  color: #2e7d32;
 }
 
 .read-more {
-  margin-top: 15px;
   display: inline-block;
-  color: #2e7d32;
-  font-weight: bold;
+  margin-top: 1rem;
+  color: #1e88e5;
   text-decoration: none;
-  border: 2px solid #2e7d32;
-  padding: 8px 16px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.read-more:hover {
-  background-color: #2e7d32;
-  color: white;
+  font-weight: bold;
 }
 
 .hero-footer {
   text-align: center;
-  padding: 30px 20px;
-  background: #f1f1f1;
-  font-size: 1rem;
-  color: #444;
+  padding: 2rem 1rem;
+  background: #f1f8f4;
+  font-size: 0.95rem;
 }
 
 .back-home {
   display: inline-block;
-  margin-top: 10px;
-  background: #facc15;
+  margin-top: 1rem;
+  background: #ffd700;
   color: #111;
-  text-decoration: none;
   padding: 10px 20px;
   border-radius: 30px;
+  text-decoration: none;
   font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.back-home:hover {
-  background: #e0bb12;
 }
 
 @media (max-width: 768px) {
@@ -117,21 +111,15 @@ body {
   }
 
   .hero-text {
+    padding: 1rem;
     text-align: center;
-    padding: 20px;
   }
- .hero-story {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
 
-.hero-story.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .hero-img {
+    max-width: 100%;
+  }
 
-  .read-more {
-    margin: 20px auto 0;
+  .highlight-quote {
+    font-size: 0.95rem;
   }
 }
