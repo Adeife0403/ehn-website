@@ -7,146 +7,150 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f8f8f8;
+      background: #f9f9f9;
       margin: 0;
       padding: 0;
       color: #333;
+      line-height: 1.7;
     }
 
-    .hero-header {
+    header {
       text-align: center;
-      background: linear-gradient(to right, #f9fafb, #e0f7fa);
-      padding: 2rem 1rem 1rem;
+      background: linear-gradient(to right, #fefcea, #f1f1f1);
+      padding: 2.5rem 1rem 1.5rem;
+      border-bottom: 1px solid #ddd;
     }
 
-    .hero-header h1 {
+    header h1 {
       margin: 0;
-      color: #2e7d32;
       font-size: 2rem;
-    }
-
-    .hero-header .subhead {
-      font-style: italic;
-      color: #555;
-    }
-
-    .highlight-quote {
-      font-weight: bold;
-      font-style: italic;
-      margin-top: 1rem;
-      color: #c62828;
-    }
-
-    .story-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      padding: 2rem 1rem;
-    }
-
-    .hero-story {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      max-width: 800px;
-      display: flex;
-      gap: 1rem;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
-
-    .hero-story:hover {
-      transform: scale(1.01);
-    }
-
-    .hero-img {
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 12px 0 0 12px;
-    }
-
-    .hero-text {
-      padding: 1rem;
-    }
-
-    .hero-text h2 {
-      margin-top: 0;
       color: #2e7d32;
     }
 
-    .story-footer {
+    header p.subhead {
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: #666;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .story-image {
+      width: 100%;
+      max-width: 240px;
+      border-radius: 12px;
+      margin: 1rem auto;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .quote {
+      font-style: italic;
+      font-weight: bold;
+      color: #c62828;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
       text-align: center;
       padding: 2rem 1rem;
-      background-color: #f9fafb;
       margin-top: 2rem;
-      border-top: 1px solid #e0e0e0;
+      border-top: 1px solid #eee;
+      background: #f5f5f5;
     }
 
-    .story-footer .back-link {
+    .back-link {
       display: inline-block;
       background-color: #2e7d32;
       color: #fff;
-      padding: 12px 30px;
+      padding: 12px 28px;
       margin-top: 1rem;
-      border-radius: 40px;
-      font-size: 1rem;
-      font-weight: bold;
+      border-radius: 30px;
       text-decoration: none;
+      font-weight: bold;
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
       transition: background 0.3s ease, transform 0.2s ease;
     }
 
-    .story-footer .back-link:hover {
+    .back-link:hover {
       background-color: #256429;
       transform: translateY(-2px);
     }
 
-    @media (max-width: 768px) {
-      .hero-story {
-        flex-direction: column;
-        align-items: center;
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
       }
-
-      .hero-img {
-        border-radius: 12px 12px 0 0;
-        width: 100%;
-        height: auto;
+      main {
+        padding: 1.5rem 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <header class="hero-header">
-    <h1>Mr. & Mrs. Balogun</h1>
-    <p class="subhead">The couple who stood in the gap when it mattered most</p>
-    <p class="highlight-quote">“What they did was small to them, but it was everything to me.”</p>
+  <header>
+    <h1>Mr. & Mrs. Balogun — The Heart That Gave Me a Home</h1>
+    <p class="subhead">A tribute to love, sacrifice, and second chances</p>
   </header>
 
-  <main class="story-container">
-    <section class="hero-story">
-      <img src="images/balogun.jpg" alt="Mr. & Mrs. Balogun" class="hero-img" />
-      <div class="hero-text">
-        <h2>My Lifeline During the Storm</h2>
-        <p>
-          Mr. and Mrs. Balogun may never fully understand what they did for me. When I stood on the edge of giving up, they stepped in — quietly, generously, and wholeheartedly. They didn’t ask for anything in return. They didn’t make a show of it. They simply saw a young student in need… and gave.
-        </p>
-        <p>
-          When I couldn’t afford to sit for my WAEC exam — the test that would determine my future — they paid for it. That act may have taken just a moment for them, but it changed the entire direction of my life. Their belief in me carried a weight I’ll never forget.
-        </p>
-        <p>
-          Because of them, I found the strength to keep going. I walked into that exam hall not just with a pen, but with the silent encouragement of two people who believed I was worth investing in. And because of that, I now walk a path where I can help others — just as they helped me.
-        </p>
-        <p>
-          This tribute is for the unsung acts of kindness that ripple through generations.
-          Thank you, Mr. & Mrs. Balogun. You are a part of my story forever.
-        </p>
-      </div>
-    </section>
+  <main>
+    <img src="images/balogun.jpg" alt="Mr. & Mrs. Balogun" class="story-image" />
+
+    <p>
+      After my mother passed away, there were very few options for where my brother and I could go. But there was one person who didn’t see us as a burden — Mrs. Balogun, my mother’s beloved younger cousin and closest friend. She and her husband didn’t hesitate. They opened their arms and their home and took us in as their own.
+    </p>
+
+    <p>
+      At the time, they already had four children — two boys and twin girls — living in a modest room and parlor with another sibling also staying with them. That made nine of us under one roof. But not once did they complain or flinch. Instead, they loved louder, gave more, and somehow made space where there was none.
+    </p>
+
+    <p>
+      Mrs. Balogun sold vegetables and okro at Oju Ore market. She woke early to buy and prepare goods, while I stepped into a new role — family cook and caretaker — at a very young age. I woke early to cook for everyone, went to school, came back to cook again. That’s where my leadership skills and resilience were born. Name any Yoruba soup — I could make it.
+    </p>
+
+    <p>
+      Mr. Balogun was a man who cherished education, and he believed in me fiercely. He saw my passion for learning, celebrated my results, and made a powerful gesture of support — he paid my WAEC exam fee in full. That belief pushed me to work even harder. I burned candles at night, studied tirelessly, and passed my WAEC with pride. I didn’t want to disappoint the man who believed in my future.
+    </p>
+
+    <p>
+      But life, again, brought heartbreak. Not long after my WAEC results, Mr. Balogun passed away. The weight of the entire family fell on my aunt’s shoulders. I couldn’t let her carry it alone.
+    </p>
+
+    <p>
+      So I stepped up.
+    </p>
+
+    <p>
+      I sold vegetables in the market beside her. I made bulk deliveries to schools like The Bells — walking long distances with sacks of okro and bunches of vegetables on my head. I still remember the day I collapsed from exhaustion in front of those polished, well-fed students. A student ran to help me up, and I smiled through the pain. That moment, too, built me.
+    </p>
+
+    <p>
+      My aunt never let the family slip — no matter how hard it got. She kept the lights on, the kids in school, the meals coming. Even when I wanted to leave to chase greener pastures, she resisted — not out of control, but out of pure love and fear for our safety. She just wanted us all to be okay.
+    </p>
+
+    <p>
+      Eventually, I left home to work, but I never left her behind. I started contributing — paying her rent, funding the twins’ education, and later setting up an herbal shop for her, a dream she once whispered to me. I even brought her firstborn to stay with me. We had become a family by choice, by love, and by destiny.
+    </p>
+
+    <p class="quote">
+      “They gave me a roof, a family, a second chance at life — and I will never forget.”
+    </p>
+
+    <p>
+      We lost her 4 years ago. But her strength lives on in me. Everything I do to uplift others — every plate of food served, every child supported, every voice amplified — carries the memory and the spirit of Mr. and Mrs. Balogun.
+    </p>
   </main>
 
-  <footer class="story-footer">
+  <footer>
     <a href="heroes-who-made-me.html" class="back-link">← Back to Stories</a>
   </footer>
 </body>
