@@ -10,16 +10,14 @@
   <header class="hero-header">
     <h1>Heroes Who Made Me</h1>
     <p class="subhead">A personal tribute to those whose everyday actions shaped my journey</p>
-    <blockquote class="highlight-quote">"In the quietest corners of life, some people shout the loudest with love."</blockquote>
-    <button id="musicToggle">🎵 Play Music</button>
+    <blockquote class="highlight-quote">“Not all heroes wear capes — some held my hand when I needed it most.”</blockquote>
+    <button id="toggleMusic">🎵 Toggle Music</button>
     <audio id="bgMusic" loop>
-      <source src="audio/soft-background.mp3" type="audio/mp3">
-      Your browser does not support the audio element.
+      <source src="audio/soft-background.mp3" type="audio/mpeg">
     </audio>
   </header>
 
   <main class="story-container">
-
     <section class="hero-story">
       <img src="images/mother.jpg" alt="My Mother" class="hero-img"/>
       <div class="hero-text">
@@ -42,11 +40,10 @@
       <img src="images/akamo.jpg" alt="Mr. S.O. Akamo" class="hero-img"/>
       <div class="hero-text">
         <h2>Mr. S.O. Akamo</h2>
-        <p>With a firm voice and vision, he nurtured discipline, gave hope, and raised a generation with compassion...</p>
+        <p>He gave me shelter when I had none, and helped shape my dignity with wisdom and care...</p>
         <a href="story-akamo.html" class="read-more">Read Full Story →</a>
       </div>
     </section>
-
   </main>
 
   <footer class="hero-footer">
@@ -55,19 +52,19 @@
   </footer>
 
   <script>
-    const toggleBtn = document.getElementById('musicToggle');
+    const toggleBtn = document.getElementById('toggleMusic');
     const music = document.getElementById('bgMusic');
-    let playing = false;
+    let isPlaying = false;
 
     toggleBtn.addEventListener('click', () => {
-      if (!playing) {
-        music.play();
-        toggleBtn.textContent = '⏸️ Pause Music';
-      } else {
+      if (isPlaying) {
         music.pause();
-        toggleBtn.textContent = '🎵 Play Music';
+        toggleBtn.textContent = "🎵 Toggle Music";
+      } else {
+        music.play();
+        toggleBtn.textContent = "🔇 Stop Music";
       }
-      playing = !playing;
+      isPlaying = !isPlaying;
     });
   </script>
 </body>
