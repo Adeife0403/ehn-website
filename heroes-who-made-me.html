@@ -8,21 +8,16 @@
 </head>
 <body>
   <header class="hero-header">
-  <h1>Heroes Who Made Me</h1>
-  <p class="subhead">A personal tribute to those whose everyday actions shaped my journey</p>
-  <blockquote style="font-style: italic; color: #eee; max-width: 700px; margin: 1rem auto; font-size: 1.1rem;">
-    “Some heroes wear capes, but mine wore kindness, wisdom, and belief.”
-  </blockquote>
-</header>
+    <h1>Heroes Who Made Me</h1>
+    <p class="subhead">A personal tribute to those whose everyday actions shaped my journey</p>
+    <blockquote class="highlight-quote">"In the quietest corners of life, some people shout the loudest with love."</blockquote>
+    <button id="musicToggle">🎵 Play Music</button>
+    <audio id="bgMusic" loop>
+      <source src="audio/soft-background.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </header>
 
- <!-- Optional Tribute Music Player -->
-<div style="text-align: center; margin-top: 1rem;">
-  <audio id="bgMusic" src="music/soft-tribute.mp3" preload="auto"></audio>
-  <button onclick="document.getElementById('bgMusic').play()" style="background: #ffd700; color: #000; padding: 10px 20px; border-radius: 30px; font-weight: bold; border: none; cursor: pointer;">
-    🎵 Play Tribute Music
-  </button>
-</div>
-  
   <main class="story-container">
 
     <section class="hero-story">
@@ -47,7 +42,7 @@
       <img src="images/akamo.jpg" alt="Mr. S.O. Akamo" class="hero-img"/>
       <div class="hero-text">
         <h2>Mr. S.O. Akamo</h2>
-        <p>He believed in my potential when it wasn’t obvious, offering guidance, mentorship, and consistent encouragement...</p>
+        <p>With a firm voice and vision, he nurtured discipline, gave hope, and raised a generation with compassion...</p>
         <a href="story-akamo.html" class="read-more">Read Full Story →</a>
       </div>
     </section>
@@ -58,5 +53,22 @@
     <p>Thank you for allowing me to share my journey. May we all recognize the heroes who walk among us.</p>
     <a href="index.html" class="back-home">← Back to Home</a>
   </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('musicToggle');
+    const music = document.getElementById('bgMusic');
+    let playing = false;
+
+    toggleBtn.addEventListener('click', () => {
+      if (!playing) {
+        music.play();
+        toggleBtn.textContent = '⏸️ Pause Music';
+      } else {
+        music.pause();
+        toggleBtn.textContent = '🎵 Play Music';
+      }
+      playing = !playing;
+    });
+  </script>
 </body>
 </html>
