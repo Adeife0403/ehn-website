@@ -4,7 +4,118 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mr. & Mrs. Balogun | Heroes Who Made Me</title>
-  <link rel="stylesheet" href="story-style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .hero-header {
+      text-align: center;
+      background: linear-gradient(to right, #f9fafb, #e0f7fa);
+      padding: 2rem 1rem 1rem;
+    }
+
+    .hero-header h1 {
+      margin: 0;
+      color: #2e7d32;
+      font-size: 2rem;
+    }
+
+    .hero-header .subhead {
+      font-style: italic;
+      color: #555;
+    }
+
+    .highlight-quote {
+      font-weight: bold;
+      font-style: italic;
+      margin-top: 1rem;
+      color: #c62828;
+    }
+
+    .story-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem 1rem;
+    }
+
+    .hero-story {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 800px;
+      display: flex;
+      gap: 1rem;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-story:hover {
+      transform: scale(1.01);
+    }
+
+    .hero-img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px 0 0 12px;
+    }
+
+    .hero-text {
+      padding: 1rem;
+    }
+
+    .hero-text h2 {
+      margin-top: 0;
+      color: #2e7d32;
+    }
+
+    .story-footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #f9fafb;
+      margin-top: 2rem;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .story-footer .back-link {
+      display: inline-block;
+      background-color: #2e7d32;
+      color: #fff;
+      padding: 12px 30px;
+      margin-top: 1rem;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .story-footer .back-link:hover {
+      background-color: #256429;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .hero-story {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-img {
+        border-radius: 12px 12px 0 0;
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="hero-header">
