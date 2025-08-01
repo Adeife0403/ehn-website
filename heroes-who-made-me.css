@@ -1,152 +1,203 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f8f8f8;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Heroes Who Made Me | Everyday Heroes Network</title>
+  <link rel="stylesheet" href="heroes-who-made-me.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
 
-.hero-header {
-  text-align: center;
-  background: linear-gradient(to right, #f9fafb, #e0f7fa);
-  padding: 2rem 1rem 1rem;
-}
+    .hero-header {
+      text-align: center;
+      background: linear-gradient(to right, #fff8e1, #e8f5e9);
+      padding: 2rem 1rem 1rem;
+      border-bottom: 1px solid #ddd;
+    }
 
-.hero-header h1 {
-  margin: 0;
-  color: #2e7d32;
-  font-size: 2rem;
-}
+    .hero-header h1 {
+      margin: 0;
+      color: #2e7d32;
+      font-size: 2rem;
+    }
 
-.hero-header .subhead {
-  font-style: italic;
-  color: #555;
-}
+    .hero-header .subhead {
+      font-style: italic;
+      color: #555;
+      font-size: 1.1rem;
+      margin-top: 0.3rem;
+    }
 
-.highlight-quote {
-  font-weight: bold;
-  font-style: italic;
-  margin-top: 1rem;
-  color: #c62828;
-}
+    .highlight-banner {
+      background: #fff3cd;
+      color: #8a6d3b;
+      padding: 1rem;
+      margin: 0;
+      text-align: center;
+      font-weight: bold;
+      border-top: 1px solid #f0e6b8;
+      border-bottom: 1px solid #f0e6b8;
+    }
 
-#toggleMusic {
-  margin-top: 1rem;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 30px;
-  background: #ffd700;
-  font-weight: bold;
-  cursor: pointer;
-}
+    .story-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem 1rem;
+    }
 
-.story-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  padding: 2rem 1rem;
-}
+    .hero-story {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      max-width: 850px;
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
 
-.hero-story {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  max-width: 800px;
-  display: flex;
-  gap: 1rem;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
+    .hero-story:hover {
+      transform: scale(1.01);
+    }
 
-.hero-story:hover {
-  transform: scale(1.01);
-}
+    .hero-img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 0;
+    }
 
-.hero-img {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 12px 0 0 12px;
-}
+    .hero-text {
+      padding: 1.5rem 1rem;
+      flex: 1;
+    }
 
-.hero-text {
-  padding: 1rem;
-}
+    .hero-text h2 {
+      margin-top: 0;
+      color: #2e7d32;
+    }
 
-.hero-text h2 {
-  margin-top: 0;
-  color: #2e7d32;
-}
+    .read-more {
+      text-decoration: none;
+      color: #2196f3;
+      font-weight: bold;
+    }
 
-.read-more {
-  text-decoration: none;
-  color: #2196f3;
-  font-weight: bold;
-}
+    .candle-icon {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      width: 32px;
+      height: 32px;
+    }
 
-.hero-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: #f0f0f0;
-}
+    .floating-sparkles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      background: url('images/sparkles.gif') repeat;
+      opacity: 0.05;
+      z-index: -1;
+    }
 
-.story-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  background-color: #f9fafb;
-  margin-top: 2rem;
-  border-top: 1px solid #e0e0e0;
-}
+    .hero-footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #f0f0f0;
+      border-top: 1px solid #e0e0e0;
+    }
 
-/* ✅ Improved Back to Stories Button */
-.story-footer .back-link {
-  display: inline-block;
-  background-color: #2e7d32;
-  color: #fff;
-  padding: 12px 30px;
-  margin-top: 1rem;
-  border-radius: 40px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: background 0.3s ease, transform 0.2s ease;
-  position: relative;
-  z-index: 10;
-}
+    .hero-footer .back-home {
+      display: inline-block;
+      background: #ffd700;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
 
-.story-footer .back-link:hover {
-  background-color: #256429;
-  transform: translateY(-2px);
-}
+    .hero-footer .back-home:hover {
+      background: #e5c100;
+    }
 
-/* Optional Home Button */
-.back-home {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 10px 20px;
-  background: #ffd700;
-  color: #000;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: bold;
-}
+    @media (max-width: 768px) {
+      .hero-story {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
 
-/* ✅ Responsive Fixes */
-@media (max-width: 768px) {
-  .hero-story {
-    flex-direction: column;
-    align-items: center;
-  }
-  .hero-img {
-    border-radius: 12px 12px 0 0;
-    width: 100%;
-    height: auto;
-  }
+  <div class="floating-sparkles"></div>
 
-  .story-footer .back-link {
-    padding: 10px 24px;
-    font-size: 0.95rem;
-  }
-}
+  <header class="hero-header">
+    <h1>Heroes Who Made Me</h1>
+    <p class="subhead">A personal tribute to those whose everyday actions shaped my journey</p>
+  </header>
+
+  <div class="highlight-banner">
+    “We rise because they stood. We shine because they lit the way.” 🔥
+  </div>
+
+  <main class="story-container">
+
+    <section class="hero-story">
+      <img src="images/mother.jpg" alt="My Mother" class="hero-img"/>
+      <div class="hero-text">
+        <h2>My Mother</h2>
+        <p>Through sacrifice, unwavering love, and silent strength, she stood as my first and eternal hero...</p>
+        <a href="story-mother.html" class="read-more">Read Full Story →</a>
+      </div>
+      <img src="images/candle.png" alt="Tribute Candle" class="candle-icon">
+    </section>
+
+    <section class="hero-story">
+      <img src="images/balogun.jpg" alt="Mr. & Mrs. Balogun" class="hero-img"/>
+      <div class="hero-text">
+        <h2>Mr. & Mrs. Balogun</h2>
+        <p>They stepped in when the odds were against me, paying my WAEC exam fee and lighting a path I walk today...</p>
+        <a href="story-balogun.html" class="read-more">Read Full Story →</a>
+      </div>
+      <img src="images/candle.png" alt="Tribute Candle" class="candle-icon">
+    </section>
+
+    <section class="hero-story">
+      <img src="images/akamo.jpg" alt="Mr. S.O. Akamo" class="hero-img"/>
+      <div class="hero-text">
+        <h2>Mr. S.O. Akamo</h2>
+        <p>He gave me a future through discipline, belief, and a scholarship that changed my life...</p>
+        <a href="story-akamo.html" class="read-more">Read Full Story →</a>
+      </div>
+      <img src="images/candle.png" alt="Tribute Candle" class="candle-icon">
+    </section>
+
+  </main>
+
+  <footer class="hero-footer">
+    <p>Thank you for allowing me to share my journey. May we all recognize the heroes who walk among us.</p>
+    <a href="index.html" class="back-home">← Back to Home</a>
+  </footer>
+
+</body>
+</html>
