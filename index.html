@@ -450,6 +450,34 @@ body {
 .who-made-me .btn-read:hover {
   background: #eab308;
 }
+/* Mobile nav hamburger */
+.menu-toggle {
+  display: none;
+  background-color: #1e5dd2;
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav a {
+    display: none;
+  }
+
+  nav.active a {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: relative;
+  }
+}
 
 @media (max-width: 600px) {
   .who-made-me h2 {
@@ -487,6 +515,8 @@ body {
     <a href="get-involved.html">Get Involved</a>
     <a href="story/heroes-who-made-me.html">Heroes Who Made Me</a>
     <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
   </nav>
 
   <div class="hero">
@@ -597,7 +627,11 @@ body {
   });
 </script>
 <div id="google_translate_element" style="position: fixed; top: 20px; right: 20px; z-index: 999;"></div>
-
+<script>
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("active");
+  }
+</script>
 <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
